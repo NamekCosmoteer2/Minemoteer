@@ -44,5 +44,24 @@ Rubble1 : <./Data/Ships/base part.txt>
 			}
 			Layer = "asteroid"
 		}
+		
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			Location = [0.5, 0.5]
+
+			HitEffects
+			[
+				{
+   			                 Type = PartAreaAmmoDrain
+   			                 AmmoType = mineral1
+     			            	 AmountPerPart = -1
+        			         Radius = 100
+          			         Falloff = 0
+      			                 Delay = 0
+         		                 AllowFriendlyDrain = true
+           			}
+			]
+		}
 	}
 }

@@ -1,0 +1,242 @@
+Part : /BASE_PART
+{
+	NameKey = "Parts/MS1x3"
+	IconNameKey = "Parts/MS1x3"
+	IDString = Mine_1x3mineralstorage
+	EditorGroup = "Munitions"
+	DescriptionKey = "Parts/MS1x3D"
+	Cost = 1000
+	AIValue = 10
+	Size = [1, 3]
+	MaxHealth = 4000
+	PenetrationResistance = 1
+	TypeCategories = [ammo]
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [32, 96]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [1, 3]
+		}
+	]
+	Components
+	{
+		Mineral1Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral1
+			MaxAmmo = 18
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+
+		Graphics
+		{
+			Type = Graphics
+			Location = [0.5, 1.5]
+			Floor
+			{
+				Layer = "floors"
+				DamageLevels
+				[
+					{
+						File = "floor.png"
+						Size = [1, 3]
+					}
+					{
+						File = "floor_33.png"
+						Size = [1, 3]
+					}
+					{
+						File = "floor_66.png"
+						Size = [1, 3]
+					}
+				]
+			}
+			Walls
+			{
+				Layer = "walls"
+				DamageLevels
+				[
+					{
+						File = "walls.png"
+						Size = [1, 3]
+					}
+					{
+						File = "walls_33.png"
+						Size = [1, 3]
+					}
+					{
+						File = "walls_66.png"
+						Size = [1, 3]
+					}
+				]
+			}
+			Roof
+			{
+				Layer = "roofs"
+				DamageLevels
+				[
+					{
+						File = "roof.png"
+						Size = [1, 3]
+					}
+					{
+						File = "roof_33.png"
+						Size = [1, 3]
+					}
+					{
+						File = "roof_66.png"
+						Size = [1, 3]
+					}
+				]
+			}
+		}
+
+		Mineral1Sprites
+		{
+			Type = AmmoSprites
+			Location = [0.5, 1.5]
+			AmmoStorage = Mineral1Storage
+			Layer = "doodads_low"
+			AmmoLevels
+			[
+				{
+					File = "bullets1.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets2.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets3.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets4.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets5.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets6.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets7.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets8.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets9.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets10.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets11.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets12.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets13.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets14.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets15.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets16.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets17.png"
+					Size = [1, 3]
+				}
+				{
+					File = "bullets18.png"
+					Size = [1, 3]
+				}
+			]
+		}
+/*
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/EFFECT_PREFABS/MedPartDestroyed
+			Location = [1, 1]
+
+			FactorHitEffectsWith = AmmoStorage
+			HitEffects
+			[
+				{
+					Type = PartAreaDamage
+					DamageVsOperationalPerTile = 2000
+					RadiusVsOperational = 4
+					DamageVsStructurePerTile = 1000
+					RadiusVsStructure = 3
+					Delay = .05
+					AllowFriendlyDamage = true
+				}
+				{
+					Type = AreaFires
+					FireChancePerTile = .25
+					FireRadius = 4
+					FireFalloff = 0
+					Delay = .05
+					AllowFriendlyFires = true
+				}
+			]
+		}
+*/
+		Indicators
+		{
+			Type = IndicatorSprites
+			Location = [1, 1]
+			Layer = "indicators"
+			Indicators
+			[
+				// Out of ammo.
+				{
+					Source = Mineral1Storage
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoAmmo
+						Size = [1.5, 1.5]
+					}
+				}
+			]
+		}
+	}
+}

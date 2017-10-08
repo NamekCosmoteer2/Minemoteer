@@ -22,4 +22,6 @@ Parts
 	Cockpit1 = "Broken Cockpit"
 	Cockpit1Icon = "Broken Cockpit"
 	Cockpit1Desc = "What happened in there?"
+	MS1x3 = "1x3 Mineral Storage"
+	MS1x3D = "1x3 Mineral Storage, used to store each type of mineral. Limit of 4."
 }

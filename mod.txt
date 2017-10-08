@@ -14,6 +14,34 @@ ShipLibraries
 Actions
 [
 	{
+		Action = Add
+		AddTo = "<Ammo/ammo.txt>/Ammo"
+		ToAdd
+		{
+				ID = mineral1
+				MaxCarried = 4
+				MaxCarriedSprites = 4
+				CarriedSprite
+				{
+					File = "Ammo/mineral1.png"
+					Size = [1, 1]
+				}
+				CarriedSpriteOffset = [0, .25]
+				AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+		}
+	}
+	{	Action = AddMany
+
+		// This is the [] list to which we want to add data fields.
+		AddTo = "<Ships/Terran/terran.txt>/Terran/Parts"
+
+		// These are the data fields we want to add to the [] list.
+		ManyToAdd
+		[
+			&<Terran/MineralStorages/1x3/1x3.txt>/Part
+		]
+	}
+	{
 		Action = Replace
 		Replace = "<Bounty Mode/bounty mode.txt>/Tiers"
 

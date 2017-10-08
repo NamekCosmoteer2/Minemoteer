@@ -103,7 +103,9 @@ Actions
 		&<Astroids Parts/MineralAstroid/mineral1.txt>/Rubble1
 		&<Astroids Parts/MineralAstroid/mineral2.txt>/Rubble1
 		&<Astroids Parts/MineralAstroid/mineral3.txt>/Rubble1
-		&<Astroids Parts/MineralAstroid/reactor.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral4.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral5.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral6.txt>/Rubble1
 		&<Black Hole/blackhole.txt>/Rubble1		
 		]
 	}
@@ -115,7 +117,6 @@ Actions
 		CommandRequiredCatagories = ["command"]
 	}
 	}	
-/*
 	{
 	Action = Overrides
 	OverrideIn = "<Bounty Mode/bounty mode.txt>"
@@ -124,7 +125,6 @@ Actions
 		SignificantBountyShipCondition = "? ship.HasParts('reactor') |  ship.HasParts('fire1')"
 	}		
 	}
-*/
 	{
 	Action = AddMany;
 	AddTo = "<Bounty Mode/bounty mode.txt>/Bounties"
@@ -196,7 +196,7 @@ Actions
     	}
 	}
 
-/*
+
 	{
     	Action = Overrides
    	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/0"
@@ -327,5 +327,4 @@ Actions
 		MaxShipsInFleet = 4
     	}
 	}
-*/
 ]

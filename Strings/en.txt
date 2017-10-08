@@ -1,0 +1,25 @@
+Astroids = "Astroids"
+
+Parts
+{
+
+	Gold1 = "Gold 1"
+	Fire1 = "Geyser"
+	Fire2 = "Geyser + Knockback"
+	Gold2 = "Gold 2"
+	Fire1Desc = "Don't come close to it! It can burn you!"
+	Fire2Desc = "Don't come close to it! It can burn you!"
+	Gold1Desc = "If you break it you get gold!"
+	Gold2Desc = "If you break it you get gold!"
+	Ice1 = "Ice 1"
+	Blackhole = "Back Hole"
+	BlackholeDesc = "Black Hole"
+	Astroidhole1 = "Astroid Hole"
+	Astroidhole2 = "Astroid Hole"
+	Half1 = "Half 1"
+	Half2 = "Half 2"
+	Mineral1 = "Mineral"
+	Cockpit1 = "Broken Cockpit"
+	Cockpit1Icon = "Broken Cockpit"
+	Cockpit1Desc = "What happened in there?"
+}

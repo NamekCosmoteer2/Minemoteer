@@ -1,0 +1,46 @@
+Rubble1 : <./Data/Ships/base part.txt>
+{
+	NameKey = "Parts/Half2"
+	IDString = half2
+	EditorGroup = "Misc"
+	Cost = 0
+	Size = [1, 1]
+	Density = 10
+	MaxHealth = 500
+	Flammable = false
+	PenetrationResistance = .5
+	CreatePartPerTileWhenDestroyed = ""
+	CreatePartPerTileWhenGrabbed = ""
+	AllowedDoorLocations = []
+	SelectionTypeID = "rubble"
+	EditorIcon
+	{
+		Texture
+		{
+			File = "2.png"
+			SampleMode = Point
+		}
+		Size = [32, 32]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints2.png"
+			Size = [1, 1]
+		}
+	]
+	Components
+	{
+		Rubble
+		{
+			Type = Sprite
+			Location = [0.5, 0.5]
+			AtlasSprite
+			{
+				File = "2.png"
+				Size = [1, 1]
+			}
+			Layer = "asteroid"
+		}
+	}
+}

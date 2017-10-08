@@ -1,0 +1,171 @@
+Rubble1 : <./Data/Ships/base part.txt>
+{
+	NameKey = "Parts/Fire2"
+	IDString = fire2
+	DescriptionKey = "Parts/Fire1Desc"
+	EditorGroup = "Misc"
+	Cost = 0
+	Size = [1, 1]
+	Density = 10
+	MaxHealth = 500
+	Flammable = false
+	PenetrationResistance = .5
+	CreatePartPerTileWhenDestroyed = ""
+	CreatePartPerTileWhenGrabbed = ""
+	AllowedDoorLocations = []
+	SelectionTypeID = "rubble"
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Point
+		}
+		Size = [48, 32]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [2, 1]
+			Offset = [0, -0.5]
+		}
+	]
+	Components
+	{
+		BatteryStorage
+		{
+			Type = AmmoStorage
+			AmmoType = battery
+			MaxAmmo = 8000
+			StartingAmmo = &MaxAmmo
+			SuppliesAmmo = true
+			MaxIndicatorAmmo = 1000
+			AssumeAlwaysHasAmmo = true
+			WaitPerDistToNextClosest = .1
+		}
+		BatteryProducer
+		{
+			Type = AmmoConverter
+			ToStorage = BatteryStorage
+			ToQuantity = 1000
+			Interval = .66
+		}
+
+		Rubble
+		{
+			Type = Sprite
+			Location = [0, 0.5]
+			RandomUVRotation = false
+			AtlasSprite
+			{
+				File = "rubble1.png"
+				Size = [2, 1]
+			}
+			Layer = "asteroid"
+		}
+		Weapon
+		{
+			Type = FixedWeapon
+			Location = [-1.8, 0.5]// Relative to upper-left corner of unrotated part.
+			Rotation = -0
+			AutoFire = true
+			FireInterval = 1
+			FireDelay = 0
+			AmmoStorage = BatteryStorage
+			AmmoUsed = 1
+			MinAmmoUsed = 1// Because 375 doesn't divide evenly into 8000.
+			SpawnLoc = [0, 0]
+			AIFirepowerRating = 30
+			CanBeGivenExplicitTarget = false
+
+			Emitter
+			{
+				Type = Beam
+				Range = 5
+				IdealRange = 5
+				Duration = 1
+				HitInterval = .1
+
+				BeamMediaEffects
+				[
+					{
+						Type = Beam
+						BeamSprite
+						{
+							Texture = "Texture.png"
+							_baseColor = [255, 255, 255, 255]
+							Shader = "beam.shader"
+							_sizePulseFactor = 1.8
+							_sizePulseInterval = 0.01
+							_sizePulseUOffsetFactor = 0
+							Size = [0.5, 0]// Only width matters.
+							VertexColor = [255, 255, 255, 217]
+						}
+						FadeInTime = 0
+						FadeOutTime = 0
+						ArcSpriteSegments = 32
+						Bucket = Middle1
+					}
+				]
+
+				HitShield
+				{
+					HitEffects
+					[
+						{
+							Type = ShieldDamage;
+							Damage = 100;
+						}
+						{
+							Type = Impulse;
+							Impulse = 2;
+						}
+					]
+
+				}
+				HitOperational
+				{
+					HitEffects
+					[
+						{
+							Type = PartDamage;
+							Damage = 100;
+						}
+						{
+							Type = Impulse;
+							Impulse = 2;
+						}
+					]
+				}
+
+				HitStructural
+				{
+					HitEffects
+					[
+						{
+							Type = PartDamage;
+							Damage = 80;
+						}
+						{
+							Type = Impulse;
+							Impulse = 2;
+						}
+					]
+				}
+			}
+
+			CoverageLine
+			{
+				Sprite
+				{
+					Texture = &/INDICATORS/RadialGradient
+					VertexColor = [255, 255, 255, 127]
+				}
+				Thickness = 2
+				CapBeginPixels = 12
+				CapEndPixels = 12
+			}
+		}
+	}
+	}

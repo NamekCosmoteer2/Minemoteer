@@ -1,0 +1,81 @@
+Rubble1 : <./Data/Ships/base part.txt>
+{
+	NameKey = "Parts/Cockpit1"
+	IconNameKey = "Parts/Cockpit1Icon"
+	IDString = cockpitbroken
+	DescriptionKey = "Parts/Cockpit1Desc"
+	Cost = 10000
+	AIValue = 50
+	Size = [2, 2]
+	SelectionPriority = 0
+	MaxHealth = 4000
+	PenetrationResistance = 1
+	RequiresCategories = []
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [64, 64]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [2, 2]
+		}
+	]
+	Components
+	{
+		BatteryStorage
+		{
+			Type = AmmoStorage
+			AmmoType = battery
+			MaxAmmo = 8000
+			StartingAmmo = &MaxAmmo
+			SuppliesAmmo = true
+			MaxIndicatorAmmo = 1000
+			AssumeAlwaysHasAmmo = true
+			WaitPerDistToNextClosest = .1
+		}
+		BatteryProducer
+		{
+			Type = AmmoConverter
+			ToStorage = BatteryStorage
+			ToQuantity = 1000
+			Interval = .66
+		}
+		Graphics
+		{
+			OperationalDoodad
+			{
+				Type = Sprite
+				Location = [0, 0]
+				RandomUVRotation = false
+				AtlasSprite
+				DamageLevels
+				[
+					{
+						AnimationFiles
+						[
+							"doodads on1.png"
+							"doodads on2.png"
+							"doodads on3.png"
+							"doodads on4.png"
+							"doodads on5.png"
+							"doodads on6.png"
+							"doodads on7.png"
+							"doodads on8.png"
+							"doodads on9.png"
+						]
+						Size = [2, 2]
+						AnimationInterval = 0.125
+					}
+				]
+				Layer = "asteroid"
+			}
+		}
+	}
+}

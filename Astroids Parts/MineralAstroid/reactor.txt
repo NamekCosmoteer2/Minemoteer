@@ -1,0 +1,49 @@
+Rubble1 : <./Data/Ships/base part.txt>
+{
+	NameKey = "Parts/Mineral1"
+	IDString = reactor2
+	DescriptionKey = "Parts/Fire1Desc"
+	EditorGroup = "Misc"
+	Cost = 0
+	Size = [1, 1]
+	Density = 10
+	MaxHealth = 500
+	Flammable = false
+	TypeCategories = [power, reactor]
+	PenetrationResistance = .5
+	CreatePartPerTileWhenDestroyed = ""
+	CreatePartPerTileWhenGrabbed = ""
+	AllowedDoorLocations = []
+	SelectionTypeID = "rubble"
+	EditorIcon
+	{
+		Texture
+		{
+			File = "3.png"
+			SampleMode = Point
+		}
+		Size = [32, 32]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [1, 1]
+		}
+	]
+	Components
+	{
+		Rubble
+		{
+			Type = Sprite
+			Location = [0.5, 0.5]
+			RandomUVRotation = true
+			AtlasSprite
+			{
+				File = "3.png"
+				Size = [1, 1]
+			}
+			Layer = "asteroid"
+		}
+	}
+}

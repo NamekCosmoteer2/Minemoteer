@@ -7,7 +7,7 @@ Part : /BASE_PART
 	DescriptionKey = "Parts/MS1x3D"
 	Cost = 1000
 	AIValue = 10
-	Size = [1, 3]
+	Size = [3, 1]
 	MaxHealth = 4000
 	PenetrationResistance = 1
 	TypeCategories = [ammo]
@@ -18,13 +18,13 @@ Part : /BASE_PART
 			File = "icon.png"
 			SampleMode = Linear
 		}
-		Size = [32, 96]
+		Size = [96, 32]
 	}
 	BlueprintSprites
 	[
 		{
 			File = "blueprints.png"
-			Size = [1, 3]
+			Size = [3, 1]
 		}
 	]
 	Components
@@ -33,7 +33,82 @@ Part : /BASE_PART
 		{
 			Type = AmmoConsumer
 			AmmoType = mineral1
-			MaxAmmo = 18
+			MaxAmmo = 4
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+		Mineral2Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral2
+			MaxAmmo = 4
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+		Mineral3Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral3
+			MaxAmmo = 4
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+		Mineral4Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral4
+			MaxAmmo = 4
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+		Mineral5Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral5
+			MaxAmmo = 4
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = false
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+		Mineral6Storage
+		{
+			Type = AmmoConsumer
+			AmmoType = mineral6
+			MaxAmmo = 4
 			StartingAmmo = 0
 			SuppliesAmmo = true
 			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
@@ -48,7 +123,7 @@ Part : /BASE_PART
 		Graphics
 		{
 			Type = Graphics
-			Location = [0.5, 1.5]
+			Location = [1.5, 0.5]
 			Floor
 			{
 				Layer = "floors"
@@ -56,15 +131,15 @@ Part : /BASE_PART
 				[
 					{
 						File = "floor.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "floor_33.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "floor_66.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 				]
 			}
@@ -75,15 +150,15 @@ Part : /BASE_PART
 				[
 					{
 						File = "walls.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "walls_33.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "walls_66.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 				]
 			}
@@ -94,15 +169,15 @@ Part : /BASE_PART
 				[
 					{
 						File = "roof.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "roof_33.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 					{
 						File = "roof_66.png"
-						Size = [1, 3]
+						Size = [3, 1]
 					}
 				]
 			}
@@ -111,82 +186,162 @@ Part : /BASE_PART
 		Mineral1Sprites
 		{
 			Type = AmmoSprites
-			Location = [0.5, 1.5]
+			Location = [1.5, 0.5]
 			AmmoStorage = Mineral1Storage
 			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
-					File = "bullets1.png"
-					Size = [1, 3]
+					File = "M1 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets2.png"
-					Size = [1, 3]
+					File = "M1 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets3.png"
-					Size = [1, 3]
+					File = "M1 3.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets4.png"
-					Size = [1, 3]
+					File = "M1 4.png"
+					Size = [3, 1]
+				}
+			]
+		}
+		Mineral2Sprites
+		{
+			Type = AmmoSprites
+			Location = [1.5, 0.5]
+			AmmoStorage = Mineral2Storage
+			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
+			AmmoLevels
+			[
+				{
+					File = "M2 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets5.png"
-					Size = [1, 3]
+					File = "M2 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets6.png"
-					Size = [1, 3]
+					File = "M2 3.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets7.png"
-					Size = [1, 3]
+					File = "M2 4.png"
+					Size = [3, 1]
+				}
+			]
+		}
+		Mineral3Sprites
+		{
+			Type = AmmoSprites
+			Location = [1.5, 0.5]
+			AmmoStorage = Mineral3Storage
+			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
+			AmmoLevels
+			[
+				{
+					File = "M3 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets8.png"
-					Size = [1, 3]
+					File = "M3 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets9.png"
-					Size = [1, 3]
+					File = "M3 3.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets10.png"
-					Size = [1, 3]
+					File = "M3 4.png"
+					Size = [3, 1]
+				}
+			]
+		}
+		Mineral4Sprites
+		{
+			Type = AmmoSprites
+			Location = [1.5, 0.5]
+			AmmoStorage = Mineral4Storage
+			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
+			AmmoLevels
+			[
+				{
+					File = "M4 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets11.png"
-					Size = [1, 3]
+					File = "M4 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets12.png"
-					Size = [1, 3]
+					File = "M4 3.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets13.png"
-					Size = [1, 3]
+					File = "M4 4.png"
+					Size = [3, 1]
+				}
+			]
+		}
+		Mineral5Sprites
+		{
+			Type = AmmoSprites
+			Location = [1.5, 0.5]
+			AmmoStorage = Mineral5Storage
+			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
+			AmmoLevels
+			[
+				{
+					File = "M5 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets14.png"
-					Size = [1, 3]
+					File = "M5 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets15.png"
-					Size = [1, 3]
+					File = "M5 3.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets16.png"
-					Size = [1, 3]
+					File = "M5 4.png"
+					Size = [3, 1]
+				}
+			]
+		}
+		Mineral6Sprites
+		{
+			Type = AmmoSprites
+			Location = [1.5, 0.5]
+			AmmoStorage = Mineral6Storage
+			Layer = "doodads_low"
+			HasZeroAmmoSprite = false
+			AmmoLevels
+			[
+				{
+					File = "M6 1.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets17.png"
-					Size = [1, 3]
+					File = "M6 2.png"
+					Size = [3, 1]
 				}
 				{
-					File = "bullets18.png"
-					Size = [1, 3]
+					File = "M6 3.png"
+					Size = [3, 1]
+				}
+				{
+					File = "M6 4.png"
+					Size = [3, 1]
 				}
 			]
 		}
@@ -227,15 +382,6 @@ Part : /BASE_PART
 			Layer = "indicators"
 			Indicators
 			[
-				// Out of ammo.
-				{
-					Source = Mineral1Storage
-					AtlasSprite
-					{
-						File = &/INDICATORS/NoAmmo
-						Size = [1.5, 1.5]
-					}
-				}
 			]
 		}
 	}

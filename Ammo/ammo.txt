@@ -14,11 +14,146 @@ RMineral1
 Mineral1
 {
 	ID = mineral1
-	MaxCarried = 10
-	CarriesMultiple = 5
+	MaxCarried = 4
+	CarriesMultiple = 4
 	CarriedSprite
 	{
 		File = "mineral1.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
+RMineral2
+{
+	ID = rmineral2
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral2.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral2
+{
+	ID = mineral2
+	MaxCarried = 4
+	CarriesMultiple = 4
+	CarriedSprite
+	{
+		File = "mineral2.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
+RMineral3
+{
+	ID = rmineral3
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral3.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral3
+{
+	ID = mineral3
+	MaxCarried = 4
+	CarriesMultiple = 4
+	CarriedSprite
+	{
+		File = "mineral3.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
+RMineral4
+{
+	ID = rmineral4
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral4.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral4
+{
+	ID = mineral4
+	MaxCarried = 4
+	CarriesMultiple = 4
+	CarriedSprite
+	{
+		File = "mineral4.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
+RMineral5
+{
+	ID = rmineral5
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral5.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral5
+{
+	ID = mineral5
+	MaxCarried = 4
+	CarriesMultiple = 4
+	CarriedSprite
+	{
+		File = "mineral5.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
+RMineral6
+{
+	ID = rmineral6
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral6.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral6
+{
+	ID = mineral6
+	MaxCarried = 4
+	CarriesMultiple = 4
+	CarriedSprite
+	{
+		File = "mineral6.png"
 		Size = [1, 1]
 	}
 	CarriedSpriteOffset = [0, .25]

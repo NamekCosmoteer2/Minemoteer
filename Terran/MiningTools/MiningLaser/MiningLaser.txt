@@ -108,32 +108,88 @@ Part : /BASE_PART
 			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/PowerDeliver
 		}
 		
-		RMineral1Storage
-		{
-			Type = AmmoStorage
+		RMineral1Storage : ~/RMineralStorage
+		{	
 			AmmoType = rmineral1
-			MaxAmmo = 40
-			StartingAmmo = 0
-			SuppliesAmmo = false
 		}
-		RMineral1Converter
+		RMineral1Converter : ~/RMineralConverter
 		{
-			Type = AmmoConverter
 			FromStorage = RMineral1Storage
 			ToStorage = Mineral1Storage
-			FromQuantity = 1
-			ToQuantity = 1
-			Interval = .1
-			OnlyWhenOperational = false
 		}
-		Mineral1Storage
+		Mineral1Storage : ~/MineralStorage
 		{
-			Type = AmmoStorage
 			AmmoType = mineral1
-			MaxAmmo = 40
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			//AssumeAlwaysHasAmmo = true
+		}
+		
+		RMineral2Storage : ~/RMineralStorage
+		{	
+			AmmoType = rmineral2
+		}
+		RMineral2Converter : ~/RMineralConverter
+		{
+			FromStorage = RMineral2Storage
+			ToStorage = Mineral2Storage
+		}
+		Mineral2Storage : ~/MineralStorage
+		{
+			AmmoType = mineral2
+		}
+		
+		RMineral3Storage : ~/RMineralStorage
+		{	
+			AmmoType = rmineral3
+		}
+		RMineral3Converter : ~/RMineralConverter
+		{
+			FromStorage = RMineral3Storage
+			ToStorage = Mineral3Storage
+		}
+		Mineral3Storage : ~/MineralStorage
+		{
+			AmmoType = mineral3
+		}
+		
+		RMineral4Storage : ~/RMineralStorage
+		{	
+			AmmoType = rmineral4
+		}
+		RMineral4Converter : ~/RMineralConverter
+		{
+			FromStorage = RMineral4Storage
+			ToStorage = Mineral4Storage
+		}
+		Mineral4Storage : ~/MineralStorage
+		{
+			AmmoType = mineral4
+		}
+		
+		RMineral5Storage : ~/RMineralStorage
+		{	
+			AmmoType = rmineral5
+		}
+		RMineral5Converter : ~/RMineralConverter
+		{
+			FromStorage = RMineral5Storage
+			ToStorage = Mineral5Storage
+		}
+		Mineral5Storage : ~/MineralStorage
+		{
+			AmmoType = mineral5
+		}
+		
+		RMineral6Storage : ~/RMineralStorage
+		{	
+			AmmoType = rmineral6
+		}
+		RMineral6Converter : ~/RMineralConverter
+		{
+			FromStorage = RMineral6Storage
+			ToStorage = Mineral6Storage
+		}
+		Mineral6Storage : ~/MineralStorage
+		{
+			AmmoType = mineral6
 		}
 		
 		Weapon
@@ -617,4 +673,32 @@ Part : /BASE_PART
 			]
 		}
 	}
+}
+
+RMineralStorage
+{
+	Type = AmmoStorage
+	AmmoType = rmineral1
+	MaxAmmo = 40
+	StartingAmmo = 0
+	SuppliesAmmo = false
+}
+RMineralConverter
+{
+	Type = AmmoConverter
+	FromStorage = RMineral1Storage
+	ToStorage = Mineral1Storage
+	FromQuantity = 1
+	ToQuantity = 1
+	Interval = .1
+	OnlyWhenOperational = false
+}
+MineralStorage
+{
+	Type = AmmoStorage
+	AmmoType = mineral1
+	MaxAmmo = 40
+	StartingAmmo = 0
+	SuppliesAmmo = true
+	//AssumeAlwaysHasAmmo = true
 }

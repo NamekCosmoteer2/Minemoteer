@@ -23,6 +23,16 @@ Actions
 		ManyToAdd = [
 			&<Ammo/ammo.txt>/RMineral1
 			&<Ammo/ammo.txt>/Mineral1
+			&<Ammo/ammo.txt>/RMineral2
+			&<Ammo/ammo.txt>/Mineral2
+			&<Ammo/ammo.txt>/RMineral3
+			&<Ammo/ammo.txt>/Mineral3
+			&<Ammo/ammo.txt>/RMineral4
+			&<Ammo/ammo.txt>/Mineral4
+			&<Ammo/ammo.txt>/RMineral5
+			&<Ammo/ammo.txt>/Mineral5
+			&<Ammo/ammo.txt>/RMineral6
+			&<Ammo/ammo.txt>/Mineral6
 		]
 	}
 	//Editor Groups

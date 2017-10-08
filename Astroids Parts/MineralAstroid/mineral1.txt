@@ -54,9 +54,9 @@ Rubble1 : <./Data/Ships/base part.txt>
 			[
 				{
    			                 Type = PartAreaAmmoDrain
-   			                 AmmoType = mineral1
+   			                 AmmoType = rmineral1
      			            	 AmountPerPart = -1
-        			         Radius = 100
+        			         Radius = 30
           			         Falloff = 0
       			                 Delay = 0
          		                 AllowFriendlyDrain = true

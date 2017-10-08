@@ -1,0 +1,620 @@
+Part : /BASE_PART
+{
+	NameKey = "Parts/IonBeam"
+	IconNameKey = "Parts/IonBeamIcon"
+	IDString = mine_mininglaser
+	EditorGroup = "Minemoteer"
+	DescriptionKey = "Parts/IonBeamDesc"
+	Cost = 10000
+	AIValue = 40
+	Size = [1, 2]
+	//PhysicalRect = [0, 1, 2, 4]
+	//SaveRect = &PhysicalRect
+	SelectionPriority = 1
+	SelectionTypeByRotation = true
+	MaxHealth = 8000
+	PenetrationResistance = 1
+	TypeCategories = [weapon, weapon_using_power]
+	ProhibitAbove = 2
+/*
+	AllowedDoorLocations
+	[
+		[-1, 4]
+		[2, 4]
+		[0, 5]
+		[1, 5]
+	]
+	ExternalWallsByCell
+	[
+		{
+			Key = [0, 1]
+			Value = [TopLeft, Bottom, BottomLeft, Left]
+		}
+		{
+			Key = [1, 1]
+			Value = [TopRight, Right, BottomRight, Bottom]
+		}
+	]
+	InternalWallsByCell
+	[
+		{
+			Key = [0, 0]
+			Value = [Left, TopLeft, Top, TopRight]
+		}
+		{
+			Key = [1, 0]
+			Value = [Right, TopRight, Top, TopLeft]
+		}
+	]
+*/
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [36.8, 92]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [2, 5]
+		}
+	]
+	PowerUIStats
+	{
+		Min = 2.666
+		Ideal = 5.333
+	}
+	CrewUIStats
+	{
+		Min = 2
+		Ideal = 6
+	}
+	Components
+	{
+		PowerToggle
+		{
+			Type = UIToggle
+			ToggleID = "on_off"
+			DefaultToggleValue = 1
+			RequiredForWholePartOperation = true
+			ToggledOnChoices = [1]
+		}
+
+		FireModeToggle
+		{
+			Type = UIToggle
+			ToggleID = "fire_mode"
+			DefaultToggleValue = 1
+			ToggledOnChoices = [1]
+		}
+
+		BatteryStorage
+		{
+			Type = AmmoConsumer
+			AmmoType = battery
+			MaxAmmo = 8000
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			ResupplyThreshold = 500
+			RequiredForWholePartOperation = true
+			AmmoDesireToggle = PowerToggle
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/PowerDeliver
+		}
+		
+		RMineral1Storage
+		{
+			Type = AmmoStorage
+			AmmoType = rmineral1
+			MaxAmmo = 40
+			StartingAmmo = 0
+			SuppliesAmmo = false
+		}
+		RMineral1Converter
+		{
+			Type = AmmoConverter
+			FromStorage = RMineral1Storage
+			ToStorage = Mineral1Storage
+			FromQuantity = 1
+			ToQuantity = 1
+			Interval = .1
+			OnlyWhenOperational = false
+		}
+		Mineral1Storage
+		{
+			Type = AmmoStorage
+			AmmoType = mineral1
+			MaxAmmo = 40
+			StartingAmmo = 0
+			SuppliesAmmo = true
+			//AssumeAlwaysHasAmmo = true
+		}
+		
+		Weapon
+		{
+			Type = FixedWeapon
+			Location = [0.5, 0]// Relative to upper-left corner of unrotated part.
+			Rotation = -90d// Relative to unrotated part.
+			FireInterval = .2
+			FireDelay = 0
+			AmmoStorage = BatteryStorage
+			AmmoUsed = 250
+			MinAmmoUsed = 1// Because 375 doesn't divide evenly into 8000.
+			SpawnLoc = [0, 0]
+			AIFirepowerRating = 3000
+			FireModeToggle = FireModeToggle
+			CanBeGivenExplicitTarget = false
+
+			Emitter
+			{
+				Type = Beam
+				Range = 25
+				IdealRange = 5
+				Duration = .5
+				HitInterval = .1
+
+				BeamMediaEffects
+				[
+					{
+						Type = Beam
+						BeamSprite
+						{
+							Texture = "beam_base.png"
+							_baseColor = [255, 255, 255, 255]
+							Shader = "./Data/Ships/Terran/ion_beam/beam.shader"
+							_sizePulseFactor = 1.2
+							_sizePulseInterval = .1
+							_sizePulseUOffsetFactor = -.03
+							Size = [2.75, 0]// Only width matters.
+							VertexColor = [255, 255, 255, 217]
+						}
+						FadeInTime = .25
+						FadeOutTime = .25
+						ArcSpriteSegments = 64
+						Bucket = Middle1
+					}
+
+					&/PARTICLES/IonBeamEmitSparks
+
+					: /SOUNDS/AudioExterior
+					{
+						Sound = "./Data/Ships/Terran/ion_beam/emit.wav"
+						Volume = 1
+						MaxConcurrent = 1
+						MaxConcurrentVolume = 1
+						IntensityRampUpTime = .25
+						IntensityRampDownTime = .25
+					}
+
+					: /SOUNDS/AudioExterior
+					{
+						Sound = "./Data/Ships/Terran/ion_beam/beam.wav"
+						Volume = 1
+						MaxConcurrent = 1
+						MaxConcurrentVolume = 1
+						IntensityRampUpTime = .25
+						IntensityRampDownTime = .25
+
+						DynamicVolume : ^/0/DynamicVolume
+						{
+							UseCustomShapeForDistance = true
+						}
+						DynamicFilter : ^/0/DynamicFilter
+						{
+							UseCustomShapeForDistance = true
+						}
+					}
+				]
+
+				HitOperational
+				{
+					HitEffects
+					[
+						{
+							Type = PartDamage;
+							Damage = 200;
+						}
+					]
+
+					MediaEffects
+					[
+						&/PARTICLES/IonBeamHit
+						&/PARTICLES/IonBeamHitFlash
+						&/PARTICLES/IonBeamHitSparks
+
+						: /SOUNDS/AudioExterior
+						{
+							Sound = "./Data/Ships/Terran/ion_beam/hit.wav"
+							Volume = .5
+							MaxConcurrent = 1
+							MaxConcurrentVolume = 1
+							IntensityRampUpTime = .25
+							IntensityRampDownTime = .25
+						}
+
+						: /SHAKES/Shake
+						{
+							ShakeAmount = .05
+							Duration = .5
+						}
+					]
+				}
+
+				HitStructural = &HitOperational
+				HitShield
+				{
+				}
+			}
+
+			CoverageLine
+			{
+				Sprite
+				{
+					Texture = &/INDICATORS/RadialGradient
+					VertexColor = [255, 125, 0, 127]
+				}
+				Thickness = 2
+				CapBeginPixels = 12
+				CapEndPixels = 12
+			}
+		}
+
+		CrewLocation1
+		{
+			Type = CrewLocation
+			Location = [.5, 1.35]
+			Rotation = 180d
+		}
+		PartCrew
+		{
+			Type = PartCrew
+			MinCrew = 1
+			FirstCrewJobPriority = &/TERRAN_PRIORITIES/IonBeam_FirstCrew
+			AdditionalCrewJobPriority = &/TERRAN_PRIORITIES/IonBeam_AdditionalCrew
+			FullCrewJobPriority = &/TERRAN_PRIORITIES/IonBeam_FullCrew
+			PrerequisitesBeforeCrewing = [BatteryStorage, PowerToggle]
+			CrewDestinations
+			[
+				[.5, 1.5]
+			]
+			CrewLocations
+			[
+				CrewLocation1
+			]
+		}
+
+		Graphics
+		{
+			Type = Graphics
+			Location = [0.5, 1]
+			DoodadToggle = Weapon
+			//ShowToggledDoodadsWhenNotOperational = true
+			Floor
+			{
+				Layer = "floors"
+				DamageLevels
+				[
+					{
+						File = "floor.png"
+						Size = [1, 2]
+					}
+					{
+						File = "floor_33.png"
+						Size = [1, 2]
+					}
+					{
+						File = "floor_66.png"
+						Size = [1, 2]
+					}
+				]
+			}
+			/*
+			ToggleOnDoodad
+			{
+				Layer = "weapons"
+				DamageLevels
+				[
+					{
+						AnimationFiles
+						[
+							"emitter_on1.png"
+							"emitter_on2.png"
+							"emitter_on3.png"
+							"emitter_on4.png"
+							"emitter_on5.png"
+							"emitter_on6.png"
+							"emitter_on7.png"
+							"emitter_on8.png"
+						]
+						Size = [2, 2]
+						Offset = [0, -2]
+						AnimationInterval = 0.075
+					}
+				]
+			}
+			ToggleOffDoodad
+			{
+				Layer = "weapons"
+				DamageLevels
+				[
+					{
+						File = "emitter_off.png"
+						Size = [2, 2]
+						Offset = [0, -2]
+					}
+				]
+			}
+			OperationalDoodad
+			{
+				Layer = "doodads_high"
+				DamageLevels
+				[
+					{
+						AnimationFiles
+						[
+							"doodads_on1.png"
+							"doodads_on2.png"
+							"doodads_on3.png"
+							"doodads_on4.png"
+							"doodads_on5.png"
+							"doodads_on6.png"
+							"doodads_on7.png"
+							"doodads_on8.png"
+						]
+						Size = [2, 5]
+						Offset = [0, -0.5]
+						AnimationInterval = 0.075
+						AnimationStartTime = Zero
+					}
+				]
+			}
+			NonOperationalDoodad
+			{
+				Layer = "doodads_high"
+				DamageLevels
+				[
+					{
+						File = "doodads_off.png"
+						Size = [2, 4]
+					}
+				]
+			}
+			OperationalLighting
+			{
+				Layer = "lights_add"
+				DamageLevels
+				[
+					{
+						File = "lights.png"
+						Size = [2, 4]
+					}
+				]
+			}
+			*/
+			Walls
+			{
+				Layer = "walls"
+				DamageLevels
+				[
+					{
+						File = "walls.png"
+						Size = [1, 2]
+					}
+					{
+						File = "walls_33.png"
+						Size = [1, 2]
+					}
+					{
+						File = "walls_66.png"
+						Size = [1, 2]
+					}
+				]
+			}
+			Roof
+			{
+				Layer = "roofs"
+				DamageLevels
+				[
+					{
+						File = "roof.png"
+						Size = [1, 2]
+					}
+					{
+						File = "roof_33.png"
+						Size = [1, 2]
+					}
+					{
+						File = "roof_66.png"
+						Size = [1, 2]
+					}
+				]
+			}
+			/*
+			OperationalRoofDoodad
+			{
+				Layer = "roof_doodads"
+				DamageLevels
+				[
+					{
+						AnimationFiles
+						[
+							"roof_doodads_on1.png"
+							"roof_doodads_on2.png"
+							"roof_doodads_on3.png"
+							"roof_doodads_on4.png"
+							"roof_doodads_on5.png"
+							"roof_doodads_on6.png"
+							"roof_doodads_on7.png"
+							"roof_doodads_on8.png"
+						]
+						Size = [2, 5]
+						Offset = [0, -0.5]
+						AnimationInterval = 0.075
+					}
+				]
+			}
+			OperationalRoofWindows
+			{
+				Layer = "roof_windows"
+				Offset = [0, 1]
+				DamageLevels
+				[
+					{
+						File = "roof_windows_on.png"
+						Size = [2, 2]
+					}
+					{
+						File = "roof_windows_on_33.png"
+						Size = [2, 2]
+					}
+					{
+						File = "roof_windows_on_66.png"
+						Size = [2, 2]
+					}
+				]
+			}
+			NonOperationalRoofWindows
+			{
+				Layer = "roof_windows"
+				Offset = [0, 1]
+				DamageLevels
+				[
+					{
+						File = "roof_windows_off.png"
+						Size = [2, 2]
+					}
+					{
+						File = "roof_windows_off_33.png"
+						Size = [2, 2]
+					}
+					{
+						File = "roof_windows_off_66.png"
+						Size = [2, 2]
+					}
+				]
+			}
+			*/
+		}
+		/*
+		OperatingHum
+		{
+			Type = ContinuousEffects
+			Location = [1, 2.5]
+			OnlyWhenOperational = true
+			MediaEffects
+			[
+				: /SOUNDS/AudioInterior
+				{
+					Sound = "ion_beam_operating.wav"
+					Volume = .2
+					Speed = 2
+					MaxConcurrent = 1
+					MaxConcurrentVolume = .2
+				}
+			]
+		}
+		*/
+		BatterySprites
+		{
+			Type = AmmoSprites
+			Location = [0.5, 1]
+			AmmoStorage = BatteryStorage
+			Layer = "doodads_low"
+			AmmoLevels
+			[
+				{
+					File = "batteries1.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries2.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries3.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries4.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries5.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries6.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries7.png"
+					Size = [1, 2]
+				}
+				{
+					File = "batteries8.png"
+					Size = [1, 2]
+				}
+			]
+		}
+
+		OperationEffects
+		{
+			Type = OperationEffects
+			Location = [1, 2.5]
+			BecameOperationalMediaEffects = &/EFFECT_PREFABS/PowerOn
+			BecameNonOperationalMediaEffects = &/EFFECT_PREFABS/PowerOff
+		}
+
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/EFFECT_PREFABS/BigPartDestroyed
+			Location = [1, 2.75]
+		}
+
+		Indicators
+		{
+			Type = IndicatorSprites
+			Location = [1, 3]
+			Layer = "indicators"
+			Indicators
+			[
+				// Turned off.
+				{
+					Source = PowerToggle
+					AtlasSprite
+					{
+						File = &/INDICATORS/PowerOff
+						Size = [1, 1]
+					}
+				}
+
+				// Out of power.
+				{
+					Source = BatteryStorage
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoPower
+						Size = [1.5, 1.5]
+					}
+				}
+
+				// No crew.
+				{
+					Source = PartCrew
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoCrew
+						Size = [1.5, 1.5]
+					}
+				}
+			]
+		}
+	}
+}

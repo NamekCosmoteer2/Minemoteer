@@ -1,0 +1,26 @@
+RMineral1
+{
+	ID = rmineral1
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral1.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+Mineral1
+{
+	ID = mineral1
+	MaxCarried = 10
+	CarriesMultiple = 5
+	CarriedSprite
+	{
+		File = "mineral1.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}

@@ -3,7 +3,7 @@ Part : /BASE_PART
 	NameKey = "Parts/MS1x3"
 	IconNameKey = "Parts/MS1x3"
 	IDString = Mine_1x3mineralstorage
-	EditorGroup = "Munitions"
+	EditorGroup = "Minemoteer"
 	DescriptionKey = "Parts/MS1x3D"
 	Cost = 1000
 	AIValue = 10

@@ -1,9 +1,10 @@
-Name = "Namek's Astroid Mod"
-Version = 0.2.0
-CompatibleGameVersions = ["0.12.11"]
-Author = "Namek"
-Description = "Adds Astroids "
+Name = "Minemoteer"
+Version = 0.0.0
+CompatibleGameVersions = ["0.12.12"]
+Author = "Bubbet & Namek"
+Description = "Adds Mining, Asteroids, Trading, Scrapships, and much more."
 StringsFolder = "Strings"
+
 ShipLibraries
 [
 	{
@@ -11,25 +12,34 @@ ShipLibraries
 	NameKey = "Astroids"
 	}
 ]
+
 Actions
 [
+	//Terran Stuff
+	//Ammo
+	{
+		Action = AddMany
+		AddTo = "<Ammo/ammo.txt>/Ammo"
+		ManyToAdd = [
+			&<Ammo/ammo.txt>/RMineral1
+			&<Ammo/ammo.txt>/Mineral1
+		]
+	}
+	//Editor Groups
 	{
 		Action = Add
-		AddTo = "<Ammo/ammo.txt>/Ammo"
+		AddTo = "<Gui/editor groups.txt>"
+		Name = "Minemoteer"
 		ToAdd
 		{
-				ID = mineral1
-				MaxCarried = 4
-				MaxCarriedSprites = 4
-				CarriedSprite
-				{
-					File = "Ammo/mineral1.png"
-					Size = [1, 1]
-				}
-				CarriedSpriteOffset = [0, .25]
-				AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+			NameKey = "EditorGroups/Minemoteer"
+			Icon
+			{
+				Texture = "Gui/Minemoteer.png"
+			}
 		}
 	}
+	//Parts
 	{	Action = AddMany
 
 		// This is the [] list to which we want to add data fields.
@@ -39,86 +49,18 @@ Actions
 		ManyToAdd
 		[
 			&<Terran/MineralStorages/1x3/1x3.txt>/Part
+			&<Terran/MiningTools/MiningLaser/MiningLaser.txt>/Part
 		]
 	}
-	{
-		Action = Replace
-		Replace = "<Bounty Mode/bounty mode.txt>/Tiers"
 
-		With
-		[
-		// 0
-	{
-		MinBountyBaseValue = 0
-		MaxBountyBasevalue = 55000
-	}
-
-	// 1
-	{
-		MinBountyBaseValue = 55001
-		MaxBountyBasevalue = 75000
-	}
-
-	// 2
-	{
-		MinBountyBaseValue = 75001
-		MaxBountyBasevalue = 110000
-	}
-
-	// 3
-	{
-		MinBountyBaseValue = 110001
-		MaxBountyBasevalue = 165000
-	}
-
-	// 4
-	{
-		MinBountyBaseValue = 165001
-		MaxBountyBasevalue = 250000
-	}
-
-	// 5
-	{
-		MinBountyBaseValue = 250001
-		MaxBountyBasevalue = 375000
-	}
-
-	// 6
-	{
-		MinBountyBaseValue = 375001
-		MaxBountyBasevalue = 550000
-	}
-
-	// 7
-	{
-		MinBountyBaseValue = 550001
-		MaxBountyBasevalue = 825000
-	}
-
-	// 8
-	{
-		MinBountyBaseValue = 825001
-		MaxBountyBasevalue = 1200000
-	}
-
-	// 9
-	{
-		MinBountyBaseValue = 1200001
-		MaxBountyBasevalue = 2500000
-	}
-
-	//10
-	{
-	 MinBountyBaseValue = 123456700
-   	 MaxBountyBasevalue = 123456800
-	}
-	]
-	}
+	//Asteroid Stuff
+	//Parts
 	{
 	Action = AddMany;
 	AddTo = "<Ships/Asteroids/asteroids.txt>/Asteroids/Parts"
 	ManyToAdd
 		[
+		&<Astroids Parts/NormalAstroid/reactor.txt>/Rubble1
 		&<Astroids Parts/GoldAstroid/goldastroid.txt>/Rubble1
 		&<Astroids Parts/GoldAstroid/goldastroid2.txt>/Rubble1
 		&<Astroids Parts/IceAstroid/iceastroid1.txt>/Rubble1
@@ -137,36 +79,101 @@ Actions
 		&<Black Hole/blackhole.txt>/Rubble1		
 		]
 	}
+	
+	//Bounty Hunter Stuff
+	//Tiers
 	{
-	Action = Overrides
-	OverrideIn = "<Ships/Asteroids/asteroids.txt>/Asteroids"
-	Overrides
-	{
-		CommandRequiredCatagories = ["command"]
+		Action = Replace
+		Replace = "<Bounty Mode/bounty mode.txt>/Tiers"
+
+		With
+		[
+			// 0
+			{
+				MinBountyBaseValue = 0
+				MaxBountyBasevalue = 55000
+			}
+		
+			// 1
+			{
+				MinBountyBaseValue = 55001
+				MaxBountyBasevalue = 75000
+			}
+		
+			// 2
+			{
+				MinBountyBaseValue = 75001
+				MaxBountyBasevalue = 110000
+			}
+		
+			// 3
+			{
+				MinBountyBaseValue = 110001
+				MaxBountyBasevalue = 165000
+			}
+		
+			// 4
+			{
+				MinBountyBaseValue = 165001
+				MaxBountyBasevalue = 250000
+			}
+		
+			// 5
+			{
+				MinBountyBaseValue = 250001
+				MaxBountyBasevalue = 375000
+			}
+		
+			// 6
+			{
+				MinBountyBaseValue = 375001
+				MaxBountyBasevalue = 550000
+			}
+		
+			// 7
+			{
+				MinBountyBaseValue = 550001
+				MaxBountyBasevalue = 825000
+			}
+		
+			// 8
+			{
+				MinBountyBaseValue = 825001
+				MaxBountyBasevalue = 1200000
+			}
+		
+			// 9
+			{
+				MinBountyBaseValue = 1200001
+				MaxBountyBasevalue = 2500000
+			}
+		
+			//10
+			{
+			MinBountyBaseValue = 123456700
+			MaxBountyBasevalue = 123456800
+			}
+		]
 	}
-	}	
+	
+	//Bounties
 	{
-	Action = Overrides
-	OverrideIn = "<Bounty Mode/bounty mode.txt>"
-	Overrides
-	{
-		SignificantBountyShipCondition = "? ship.HasParts('reactor') |  ship.HasParts('fire1')"
-	}		
+		Action = AddMany;
+		AddTo = "<Bounty Mode/bounty mode.txt>/Bounties"
+		ManyToAdd
+		[
+			{
+				BaseValue = 123456789
+				DesignedShip = "Astroids/Astroid.ship.png"
+			}		
+		]
 	}
-	{
-	Action = AddMany;
-	AddTo = "<Bounty Mode/bounty mode.txt>/Bounties"
-	ManyToAdd
-	[
-		{
-			BaseValue = 123456789
-			DesignedShip = "Astroids/Astroid.ship.png"
-		}		
-	]
-	}
+	
+	//Easy
+	
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/0"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/0"
     	Overrides
     	{
                 TiersToSpawn = [0, 0, 1, 1, 10, 10]
@@ -176,12 +183,9 @@ Actions
                 BountyShipAI = "BountyBrain"
     	}
 	}
-
-
-
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/1"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/1"
     	Overrides
     	{
                 TiersToSpawn = [1, 2, 2, 3, 10, 10]
@@ -192,7 +196,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/2"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/2"
     	Overrides
     	{
                 TiersToSpawn = [3, 4, 4, 5, 10, 10]
@@ -203,7 +207,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/3"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/3"
     	Overrides
     	{
                 TiersToSpawn = [5, 6, 7, 10, 10]
@@ -214,7 +218,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/4"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/4"
     	Overrides
     	{
                 TiersToSpawn = [8, 9, 10, 10]
@@ -224,10 +228,11 @@ Actions
     	}
 	}
 
-
+	//Medium
+	
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/0"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/0"
     	Overrides
     	{
                 TiersToSpawn = [0, 0, 1, 1, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -239,7 +244,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/1"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/1"
     	Overrides
     	{
                 TiersToSpawn = [1, 2, 2, 3, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -250,7 +255,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/2"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/2"
     	Overrides
     	{
                 TiersToSpawn = [3, 4, 4, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -263,7 +268,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/3"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/3"
     	Overrides
     	{
                 TiersToSpawn = [5, 6, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -276,7 +281,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/4"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/4"
     	Overrides
     	{
                 TiersToSpawn = [8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -287,13 +292,12 @@ Actions
 		MaxShipsInFleet = 4
     	}
 	}
-
-
-
-
+	
+	//Hard
+	
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/0"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/0"
     	Overrides
     	{
                 TiersToSpawn = [1, 1, 1, 2, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -305,7 +309,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/1"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/1"
     	Overrides
     	{
                 TiersToSpawn = [2, 3, 3, 4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -318,7 +322,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/2"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/2"
     	Overrides
     	{
                 TiersToSpawn = [4, 5, 5, 6, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -331,7 +335,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/3"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/3"
     	Overrides
     	{
                 TiersToSpawn = [6, 7, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
@@ -344,7 +348,7 @@ Actions
 	}
 	{
     	Action = Overrides
-   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/4"
+		OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/4"
     	Overrides
     	{
                 TiersToSpawn = [9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]

@@ -1,0 +1,379 @@
+Name = "Namek's Astroid Mod"
+Version = 0.2.0
+CompatibleGameVersions = ["0.12.11"]
+Author = "Namek"
+Description = "Adds Astroids "
+StringsFolder = "Strings"
+ShipLibraries
+[
+	{
+	Folder = "Astroids"
+	NameKey = "Astroids"
+	}
+]
+Actions
+[
+	{
+		Action = Add
+		AddTo = "<Ammo/ammo.txt>/Ammo"
+		ToAdd
+		{
+				ID = mineral1
+				MaxCarried = 4
+				MaxCarriedSprites = 4
+				CarriedSprite
+				{
+					File = "Ammo/mineral1.png"
+					Size = [1, 1]
+				}
+				CarriedSpriteOffset = [0, .25]
+				AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+		}
+	}
+	{	Action = AddMany
+
+		// This is the [] list to which we want to add data fields.
+		AddTo = "<Ships/Terran/terran.txt>/Terran/Parts"
+
+		// These are the data fields we want to add to the [] list.
+		ManyToAdd
+		[
+			&<Terran/MineralStorages/1x3/1x3.txt>/Part
+		]
+	}
+	{
+		Action = Add
+		AddTo = "<Gui/editor groups.txt>"
+		Name = "MineralStorage"
+		ToAdd
+		{
+			NameKey = "EditorGroups/MineralStorage"
+			Icon
+			{
+				Texture = "Gui/mineralstorage.png"
+			}
+		}
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<Ships/Terran/Terran.txt>/Terran/"
+		Overrides = 
+		{
+			CategoryLimits = ["MineralStorage", 4]
+		}
+	}
+	{
+		Action = Replace
+		Replace = "<Bounty Mode/bounty mode.txt>/Tiers"
+
+		With
+		[
+		// 0
+	{
+		MinBountyBaseValue = 0
+		MaxBountyBasevalue = 55000
+	}
+
+	// 1
+	{
+		MinBountyBaseValue = 55001
+		MaxBountyBasevalue = 75000
+	}
+
+	// 2
+	{
+		MinBountyBaseValue = 75001
+		MaxBountyBasevalue = 110000
+	}
+
+	// 3
+	{
+		MinBountyBaseValue = 110001
+		MaxBountyBasevalue = 165000
+	}
+
+	// 4
+	{
+		MinBountyBaseValue = 165001
+		MaxBountyBasevalue = 250000
+	}
+
+	// 5
+	{
+		MinBountyBaseValue = 250001
+		MaxBountyBasevalue = 375000
+	}
+
+	// 6
+	{
+		MinBountyBaseValue = 375001
+		MaxBountyBasevalue = 550000
+	}
+
+	// 7
+	{
+		MinBountyBaseValue = 550001
+		MaxBountyBasevalue = 825000
+	}
+
+	// 8
+	{
+		MinBountyBaseValue = 825001
+		MaxBountyBasevalue = 1200000
+	}
+
+	// 9
+	{
+		MinBountyBaseValue = 1200001
+		MaxBountyBasevalue = 2500000
+	}
+
+	//10
+	{
+	 MinBountyBaseValue = 123456700
+   	 MaxBountyBasevalue = 123456800
+	}
+	]
+	}
+	{
+	Action = AddMany;
+	AddTo = "<Ships/Asteroids/asteroids.txt>/Asteroids/Parts"
+	ManyToAdd
+		[
+		&<Astroids Parts/GoldAstroid/goldastroid.txt>/Rubble1
+		&<Astroids Parts/GoldAstroid/goldastroid2.txt>/Rubble1
+		&<Astroids Parts/IceAstroid/iceastroid1.txt>/Rubble1
+		&<Astroids Parts/FireAstroid/fireastroid1.txt>/Rubble1
+		&<Astroids Parts/NormalAstroid/hole1.txt>/Rubble1
+		&<Astroids Parts/NormalAstroid/hole2.txt>/Rubble1
+		&<Astroids Parts/HalfAstroid/half1.txt>/Rubble1
+		&<Astroids Parts/HalfAstroid/half2.txt>/Rubble1
+		&<Astroids Parts/HalfAstroid/half3.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral1.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral2.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral3.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral4.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral5.txt>/Rubble1
+		&<Astroids Parts/MineralAstroid/mineral6.txt>/Rubble1
+		&<Black Hole/blackhole.txt>/Rubble1		
+		]
+	}
+	{
+	Action = Overrides
+	OverrideIn = "<Ships/Asteroids/asteroids.txt>/Asteroids"
+	Overrides
+	{
+		CommandRequiredCatagories = ["command"]
+	}
+	}	
+	{
+	Action = Overrides
+	OverrideIn = "<Bounty Mode/bounty mode.txt>"
+	Overrides
+	{
+		SignificantBountyShipCondition = "? ship.HasParts('reactor') |  ship.HasParts('fire1')"
+	}		
+	}
+	{
+	Action = AddMany;
+	AddTo = "<Bounty Mode/bounty mode.txt>/Bounties"
+	ManyToAdd
+	[
+		{
+			BaseValue = 123456789
+			DesignedShip = "Astroids/Astroid.ship.png"
+		}		
+	]
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/0"
+    	Overrides
+    	{
+                TiersToSpawn = [0, 0, 1, 1, 10, 10]
+                TiersToSpawnIfStartingNode = [0, 0, 0]
+                RewardMoneyAsFractionOfShipValue = .5
+                RewardFuelAsFractionOfShipMass = .5
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+
+
+
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/1"
+    	Overrides
+    	{
+                TiersToSpawn = [1, 2, 2, 3, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .5
+                RewardFuelAsFractionOfShipMass = .5
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/2"
+    	Overrides
+    	{
+                TiersToSpawn = [3, 4, 4, 5, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .5
+                RewardFuelAsFractionOfShipMass = .5
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/3"
+    	Overrides
+    	{
+                TiersToSpawn = [5, 6, 7, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .5
+                RewardFuelAsFractionOfShipMass = .5
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/0/ThreatLevels/4"
+    	Overrides
+    	{
+                TiersToSpawn = [8, 9, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .5
+                RewardFuelAsFractionOfShipMass = .5
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+
+
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/0"
+    	Overrides
+    	{
+                TiersToSpawn = [0, 0, 1, 1, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                TiersToSpawnIfStartingNode = [0, 0, 0]
+                RewardMoneyAsFractionOfShipValue = .25
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrain"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/1"
+    	Overrides
+    	{
+                TiersToSpawn = [1, 2, 2, 3, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .25
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/2"
+    	Overrides
+    	{
+                TiersToSpawn = [3, 4, 4, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .25
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .3
+		MaxShipsInFleet = 2
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/3"
+    	Overrides
+    	{
+                TiersToSpawn = [5, 6, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .25
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .3
+		MaxShipsInFleet = 3
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/1/ThreatLevels/4"
+    	Overrides
+    	{
+                TiersToSpawn = [8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .25
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .3
+		MaxShipsInFleet = 4
+    	}
+	}
+
+
+
+
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/0"
+    	Overrides
+    	{
+                TiersToSpawn = [1, 1, 1, 2, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                TiersToSpawnIfStartingNode = [0, 0, 0]
+                RewardMoneyAsFractionOfShipValue = .125
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/1"
+    	Overrides
+    	{
+                TiersToSpawn = [2, 3, 3, 4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .125
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .3
+		MaxShipsInFleet = 2
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/2"
+    	Overrides
+    	{
+                TiersToSpawn = [4, 5, 5, 6, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .125
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .5
+		MaxShipsInFleet = 2
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/3"
+    	Overrides
+    	{
+                TiersToSpawn = [6, 7, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .125
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .5
+		MaxShipsInFleet = 3
+    	}
+	}
+	{
+    	Action = Overrides
+   	 OverrideIn = "<Bounty Mode/bounty mode.txt>/DifficultyLevels/2/ThreatLevels/4"
+    	Overrides
+    	{
+                TiersToSpawn = [9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+                RewardMoneyAsFractionOfShipValue = .125
+                RewardFuelAsFractionOfShipMass = .25
+                BountyShipAI = "BountyBrainHard"
+		FleetChance = .5
+		MaxShipsInFleet = 4
+    	}
+	}
+]

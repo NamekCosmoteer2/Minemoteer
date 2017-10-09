@@ -1,0 +1,69 @@
+ShipRulesID = "Asteroid"
+ShipName = "Ore Asteroid (Medium)"
+Allegiance = -3// Junk.
+Stages
+[
+	{
+		Type = AsteroidStage
+		MinModules = 1
+		MaxModules = 3
+		Modules
+		[
+			{
+				Type = CircleModule
+				RandomWeight = 2
+				AllowedFromDirections
+				[
+					Center
+					Left
+					Right
+					Up
+					Down
+					All
+				]
+				Part = rubble1
+				MinRadius = 3
+				MaxRadius = 5
+			}
+		]
+		Name = AsteroidStage
+		IsEnabled = true
+		Parts
+		[
+			astroidhole1
+			astroidhole2
+			astroidhole1
+			astroidhole2
+			astroidhole1
+			astroidhole2
+			astroidhole1
+			astroidhole2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			rubble1
+			rubble2
+			mineral1
+			mineral2
+			mineral3
+			mineral4
+			mineral5
+			mineral6
+		]
+		MinParts = 10
+		MaxParts = 30
+	}
+]

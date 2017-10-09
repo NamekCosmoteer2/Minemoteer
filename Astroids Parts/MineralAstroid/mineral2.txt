@@ -4,12 +4,13 @@ Rubble1 : <./Data/Ships/base part.txt>
 	IDString = mineral2
 	DescriptionKey = "Parts/Fire1Desc"
 	EditorGroup = "Misc"
-	Cost = 0
+	Cost = 300
 	Size = [1, 1]
 	Density = 10
-	MaxHealth = 500
+	MaxHealth = 1500
 	Flammable = false
 	PenetrationResistance = .5
+	TypeCategories = [reactor]
 	CreatePartPerTileWhenDestroyed = ""
 	CreatePartPerTileWhenGrabbed = ""
 	AllowedDoorLocations = []

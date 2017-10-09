@@ -86,7 +86,7 @@ Actions
 	AddTo = "<Ships/Asteroids/asteroids.txt>/Asteroids/Parts"
 	ManyToAdd
 		[
-		&<Astroids Parts/NormalAstroid/reactor.txt>/Rubble1
+		//&<Astroids Parts/NormalAstroid/reactor.txt>/Rubble1
 		&<Astroids Parts/GoldAstroid/goldastroid.txt>/Rubble1
 		&<Astroids Parts/GoldAstroid/goldastroid2.txt>/Rubble1
 		&<Astroids Parts/IceAstroid/iceastroid1.txt>/Rubble1
@@ -188,10 +188,16 @@ Actions
 		AddTo = "<Bounty Mode/bounty mode.txt>/Bounties"
 		ManyToAdd
 		[
+			/*
 			{
 				BaseValue = 123456789
 				DesignedShip = "Astroids/Astroid.ship.png"
-			}		
+			}
+			*/
+			{
+				BaseValue = 123456789
+				RandomShip = &<Astroids/Ore_Asteroid_Med.generator.txt>
+			}
 		]
 	}
 	

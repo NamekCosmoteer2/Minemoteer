@@ -14,7 +14,7 @@ Part : /BASE_PART
 	SelectionTypeByRotation = true
 	MaxHealth = 8000
 	PenetrationResistance = 1
-	TypeCategories = [weapon, weapon_using_power]
+	TypeCategories = [weapon, weapon_using_power, mininglaser]
 	ProhibitAbove = 2
 /*
 	AllowedDoorLocations

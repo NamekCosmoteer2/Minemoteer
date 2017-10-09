@@ -35,6 +35,22 @@ Actions
 			&<Ammo/ammo.txt>/Mineral6
 		]
 	}
+	//Catagory Limits
+	{
+		Action = Overrides
+		OverrideIn = "<Ships/Terran/terran.txt>/Terran/"
+		Overrides
+		{
+			CategoryLimits
+			[
+				{
+					Category = "mininglaser"
+					//Min = 1
+					Max = 4
+				}
+			]
+		}
+	}
 	//Editor Groups
 	{
 		Action = Add

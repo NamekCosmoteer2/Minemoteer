@@ -1,0 +1,6 @@
+armor : &<./Data/Ships/Terran/armor/armor.txt>/Part/
+{
+	IDString = station_armor
+	MaxHealth = -1
+	IsBuildable = false
+}

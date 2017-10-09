@@ -76,6 +76,8 @@ Actions
 		[
 			&<Terran/MineralStorages/1x3/1x3.txt>/Part
 			&<Terran/MiningTools/MiningLaser/MiningLaser.txt>/Part
+			
+			&<Terran/stationparts.txt>/armor
 		]
 	}
 

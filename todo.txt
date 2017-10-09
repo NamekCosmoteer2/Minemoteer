@@ -7,10 +7,17 @@ Sprites
 - Trading Station
 Sprites
 Code
+takes x resource from trading part, gives y speical trading item.
+many different trading blocks.
+stations use special ai that doesnt attack back, also has speical -health blocks making it invincible(look at using references to easily do this) -done
 
 - Docking part that shoots minirals (In trading station and mothership?)
 Sprites
 Code
+3 tall x 5 wide shoots out middle of 5
+uses code from energywires to move resources out, each with their own toggle.
+a low priority storage for speical trading items each would require their own storage.
+low priority storage for use of mining ship dumping into mother ships cargo
 
 - More Storage types (6x3, 1x1)
 Sprites

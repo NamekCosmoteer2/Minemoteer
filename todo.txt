@@ -1,0 +1,35 @@
+//Terran Parts
+
+
+- Mining Laser
+Sprites
+
+- Trading Station
+Sprites
+Code
+
+- Docking part that shoots minirals (In trading station and mothership?)
+Sprites
+Code
+
+- More Storage types (6x3, 1x1)
+Sprites
+Code
+
+//Astroids
+
+-Some costum astroids maybe adding rare minerals
+-Rare Mineral?Just 1, or not, maybe not neseccary
+
+//Ships
+
+- Designing trading stations
+
+//Broken/Deserted ships
+
+- Control room
+Code, sprite already done
+
+-ALL normal ship parts
+Sprites
+Code

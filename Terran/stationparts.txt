@@ -1,6 +1,71 @@
+Buildable = true
+Density = 2000000
+reactor : &<./Data/Ships/Terran/reactor/reactor.txt>/Part/
+{
+	IDString = station_reactor
+	MaxHealth = -1
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+	TypeCategories = [power, reactor] //doesnt die [power, reactor] //dies [power] if dies gives 50 mill fuel and cost of ship
+}
 armor : &<./Data/Ships/Terran/armor/armor.txt>/Part/
 {
 	IDString = station_armor
 	MaxHealth = -1
-	IsBuildable = false
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+}
+cockpit : &<./Data/Ships/Terran/cockpit/cockpit.txt>/Part/
+{
+	IDString = station_cockpit
+	MaxHealth = -1
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+}
+corridor : &<./Data/Ships/Terran/corridor/corridor.txt>/Part/
+{
+	IDString = station_corridor
+	MaxHealth = -1
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+}
+quarters : &<./Data/Ships/Terran/quarters/quarters.txt>/Part/
+{
+	IDString = station_quarters
+	MaxHealth = -1
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+}
+
+//weapons
+small_laser : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/
+{
+	IDString = station_small_laser
+	MaxHealth = -1
+	Density = &~/Density
+	IsBuildable = &~/Buildable
+	Components
+	{
+		PowerToggle : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/PowerToggle/{}
+		FireModeToggle //: &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/FireModeToggle/
+		{
+			Type = UIToggle
+			ToggleID = "fire_mode"
+			DefaultToggleValue = 0
+			ToggledOnChoices = [1]
+		}
+		BatteryStorage : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/BatteryStorage/{}
+		Graphics : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/Graphics/{}
+		Turret : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/Turret/{}
+		FireEffect : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/FireEffect/{}
+		CrewLocation : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/CrewLocation/{}
+		PartCrew : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/PartCrew/{}
+		TurretCollider : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/TurretCollider/{}
+		TurretGraphics : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/TurretGraphics/{}
+		WeaponSprite : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/WeaponSprite/{}
+		BatterySprites : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/BatterySprites/{}
+		OperationEffects : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/OperationEffects/{}
+		DestroyedEffects : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/DestroyedEffects/{}
+		Indicators : &<./Data/Ships/Terran/small_laser/small_laser.txt>/Part/Components/Indicators/{}
+	}
 }

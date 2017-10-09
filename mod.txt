@@ -66,7 +66,8 @@ Actions
 		}
 	}
 	//Parts
-	{	Action = AddMany
+	{	
+		Action = AddMany
 
 		// This is the [] list to which we want to add data fields.
 		AddTo = "<Ships/Terran/terran.txt>/Terran/Parts"
@@ -77,7 +78,13 @@ Actions
 			&<Terran/MineralStorages/1x3/1x3.txt>/Part
 			&<Terran/MiningTools/MiningLaser/MiningLaser.txt>/Part
 			
+			//Station Parts
+			&<Terran/stationparts.txt>/reactor
 			&<Terran/stationparts.txt>/armor
+			&<Terran/stationparts.txt>/small_laser
+			&<Terran/stationparts.txt>/cockpit
+			&<Terran/stationparts.txt>/corridor
+			&<Terran/stationparts.txt>/quarters
 		]
 	}
 
@@ -176,10 +183,16 @@ Actions
 				MaxBountyBasevalue = 2500000
 			}
 		
-			//10
+			//10 Asteroids
 			{
 			MinBountyBaseValue = 123456700
 			MaxBountyBasevalue = 123456800
+			}
+			
+			//11 Stations
+			{
+			MinBountyBaseValue = 123456900
+			MaxBountyBasevalue = 123456900
 			}
 		]
 	}
@@ -200,6 +213,10 @@ Actions
 				BaseValue = 123456789
 				RandomShip = &<Astroids/Ore_Asteroid_Med.generator.txt>
 			}
+			{
+				BaseValue = 123456900
+				DesignedShip = "Terran/Stations/Station1.ship.png"
+			}
 		]
 	}
 	
@@ -211,7 +228,7 @@ Actions
     	Overrides
     	{
                 TiersToSpawn = [0, 0, 1, 1, 10, 10]
-                TiersToSpawnIfStartingNode = [0, 0, 0]
+                TiersToSpawnIfStartingNode = [11, 11, 11]
                 RewardMoneyAsFractionOfShipValue = .5
                 RewardFuelAsFractionOfShipMass = .5
                 BountyShipAI = "BountyBrain"

@@ -6,7 +6,8 @@ Part : /BASE_PART
 	EditorGroup = "Minemoteer"
 	DescriptionKey = "Parts/IonBeamDesc"
 	Cost = 10000
-	AIValue = 40
+	AIValue = 5
+	TypeCategories = [weapon, weapon_using_power, mininglaser]
 	Size = [1, 2]
 	//PhysicalRect = [0, 1, 2, 4]
 	//SaveRect = &PhysicalRect
@@ -14,39 +15,15 @@ Part : /BASE_PART
 	SelectionTypeByRotation = true
 	MaxHealth = 8000
 	PenetrationResistance = 1
-	TypeCategories = [weapon, weapon_using_power, mininglaser]
-	ProhibitAbove = 2
-/*
+	ProhibitAbove = 1
 	AllowedDoorLocations
 	[
 		[-1, 4]
 		[2, 4]
 		[0, 5]
 		[1, 5]
+
 	]
-	ExternalWallsByCell
-	[
-		{
-			Key = [0, 1]
-			Value = [TopLeft, Bottom, BottomLeft, Left]
-		}
-		{
-			Key = [1, 1]
-			Value = [TopRight, Right, BottomRight, Bottom]
-		}
-	]
-	InternalWallsByCell
-	[
-		{
-			Key = [0, 0]
-			Value = [Left, TopLeft, Top, TopRight]
-		}
-		{
-			Key = [1, 0]
-			Value = [Right, TopRight, Top, TopLeft]
-		}
-	]
-*/
 	EditorIcon
 	{
 		Texture
@@ -60,7 +37,8 @@ Part : /BASE_PART
 	[
 		{
 			File = "blueprints.png"
-			Size = [2, 5]
+			Size = [1, 3]
+			Offset = [0, -0.5]
 		}
 	]
 	PowerUIStats
@@ -96,7 +74,7 @@ Part : /BASE_PART
 		{
 			Type = AmmoConsumer
 			AmmoType = battery
-			MaxAmmo = 8000
+			MaxAmmo = 6000
 			LowConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_LowConsume
 			HighConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_HighConsume
 			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/IonBeam_EmptyConsume
@@ -200,7 +178,7 @@ Part : /BASE_PART
 			FireInterval = .2
 			FireDelay = 0
 			AmmoStorage = BatteryStorage
-			AmmoUsed = 250
+			AmmoUsed = 100
 			MinAmmoUsed = 1// Because 375 doesn't divide evenly into 8000.
 			SpawnLoc = [0, 0]
 			AIFirepowerRating = 3000
@@ -210,7 +188,7 @@ Part : /BASE_PART
 			Emitter
 			{
 				Type = Beam
-				Range = 25
+				Range = 6
 				IdealRange = 5
 				Duration = .5
 				HitInterval = .1
@@ -370,7 +348,6 @@ Part : /BASE_PART
 					}
 				]
 			}
-			/*
 			ToggleOnDoodad
 			{
 				Layer = "weapons"
@@ -383,13 +360,9 @@ Part : /BASE_PART
 							"emitter_on2.png"
 							"emitter_on3.png"
 							"emitter_on4.png"
-							"emitter_on5.png"
-							"emitter_on6.png"
-							"emitter_on7.png"
-							"emitter_on8.png"
 						]
-						Size = [2, 2]
-						Offset = [0, -2]
+						Size = [1, 3]
+						Offset = [0, -0.6]
 						AnimationInterval = 0.075
 					}
 				]
@@ -401,14 +374,14 @@ Part : /BASE_PART
 				[
 					{
 						File = "emitter_off.png"
-						Size = [2, 2]
-						Offset = [0, -2]
+						Size = [1, 3]
+						Offset = [0, -0.6]
 					}
 				]
 			}
 			OperationalDoodad
 			{
-				Layer = "doodads_high"
+				Layer = "doodads_low"
 				DamageLevels
 				[
 					{
@@ -422,37 +395,30 @@ Part : /BASE_PART
 							"doodads_on6.png"
 							"doodads_on7.png"
 							"doodads_on8.png"
+							"doodads_on9.png"
+							"doodads_on10.png"
+							"doodads_on11.png"
+							"doodads_on12.png"
+							"doodads_on13.png"
+							"doodads_on14.png"
+							"doodads_on15.png"
 						]
-						Size = [2, 5]
-						Offset = [0, -0.5]
+						Size = [1, 2]
 						AnimationInterval = 0.075
-						AnimationStartTime = Zero
 					}
 				]
 			}
 			NonOperationalDoodad
 			{
-				Layer = "doodads_high"
+				Layer = "doodads_low"
 				DamageLevels
 				[
 					{
 						File = "doodads_off.png"
-						Size = [2, 4]
+						Size = [1, 2]
 					}
 				]
 			}
-			OperationalLighting
-			{
-				Layer = "lights_add"
-				DamageLevels
-				[
-					{
-						File = "lights.png"
-						Size = [2, 4]
-					}
-				]
-			}
-			*/
 			Walls
 			{
 				Layer = "walls"
@@ -581,7 +547,7 @@ Part : /BASE_PART
 			Type = AmmoSprites
 			Location = [0.5, 1]
 			AmmoStorage = BatteryStorage
-			Layer = "doodads_low"
+			Layer = "doodads_high"
 			AmmoLevels
 			[
 				{
@@ -606,14 +572,6 @@ Part : /BASE_PART
 				}
 				{
 					File = "batteries6.png"
-					Size = [1, 2]
-				}
-				{
-					File = "batteries7.png"
-					Size = [1, 2]
-				}
-				{
-					File = "batteries8.png"
 					Size = [1, 2]
 				}
 			]

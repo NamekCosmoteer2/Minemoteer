@@ -1,0 +1,126 @@
+Part : /BASE_PART
+{
+	NameKey = "Parts/Armor"
+	IconNameKey = "Parts/ArmorIcon"
+	IDString = armor3
+	EditorGroup = "Defenses"
+	DescriptionKey = "Parts/ArmorDesc"
+	Cost = 300
+	Size = [5, 4]
+	SelectionTypeID = "armor"
+	MaxHealth = 4000
+	AreaDamageBlockFactor = .25
+	Flammable = false
+	PenetrationResistance = 5
+	CreatePartPerTileWhenGrabbed = ""
+	CrewSpeedFactor = 0
+	Density = 2
+	IsRotateable = true
+	IsWalled = true
+	AllowedDoorLocations = []
+	GeneratorRequiresDoor = false
+	CustomCollider
+	[
+		[1,0]
+		[0,0.5]
+		[1,1]
+		[1,4]
+		[2,4.5]
+		[1,5]
+		[4,5]
+		[4,0]
+		/*
+		[1, 0]
+		[1, 1]
+		[0, 1]
+		*/
+	]
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [32, 32]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [1, 1]
+		}
+	]
+	Components
+	{
+		Graphics
+		{
+			Type = Graphics
+			Location = [0.5, 0.5]
+			Floor // This is needed so that armor shows up in ship ghosts.
+			{
+				Layer = "floors"
+				DamageLevels
+				[
+					{
+						File = "armor.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+			Walls
+			{
+				Layer = "walls"
+				DamageLevels
+				[
+					{
+						File = "armor.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+			Roof
+			{
+				Layer = "roofs"
+				DamageLevels
+				[
+					{
+						File = "roof.png"
+						Size = [1, 1]
+					}
+					{
+						File = "roof_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "roof_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+		}
+
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/EFFECT_PREFABS/SmallPartDestroyedDry
+			Location = [.5, .5]
+		}
+	}
+}

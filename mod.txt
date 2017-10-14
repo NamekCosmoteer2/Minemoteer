@@ -77,6 +77,7 @@ Actions
 		[
 			&<Terran/MineralStorages/1x3/1x3.txt>/Part
 			&<Terran/MiningTools/MiningLaser/MiningLaser.txt>/Part
+			&<Terran/TradingDock/tradingdock.txt>/Part
 			
 			//Station Parts
 			&<Terran/stationparts.txt>/reactor

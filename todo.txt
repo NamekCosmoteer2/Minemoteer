@@ -11,6 +11,14 @@ takes x resource from trading part, gives y speical trading item.
 many different trading blocks.
 stations use special ai that doesnt attack back, also has speical -health blocks making it invincible(look at using references to easily do this) -done
 
+- Weapon that if it hits the enemy, does damage to whole ship
+Spriting
+Code
+
+-Weapon that shoots a 10x1 arc shockwave to the enemy
+Spriting
+Code
+
 - Docking part that shoots minirals (In trading station and mothership?)
 Sprites
 Code

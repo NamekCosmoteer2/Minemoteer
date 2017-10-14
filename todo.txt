@@ -15,6 +15,11 @@ stations use special ai that doesnt attack back, also has speical -health blocks
 Spriting
 Code
 
+- Drone heat weapon
+has a larger radius aoe hit self, that spreads fires in enemy ship
+when it gets closer, using another smaller radius self shot, it destorys itself
+death effects of a big explosion.
+
 -Weapon that shoots a 10x1 arc shockwave to the enemy
 Spriting
 Code

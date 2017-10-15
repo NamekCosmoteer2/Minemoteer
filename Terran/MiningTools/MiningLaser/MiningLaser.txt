@@ -18,11 +18,9 @@ Part : /BASE_PART
 	ProhibitAbove = 1
 	AllowedDoorLocations
 	[
-		[-1, 4]
-		[2, 4]
-		[0, 5]
-		[1, 5]
-
+		[0, 2]//apparently that is the bottom of the block
+		[-1, 1]
+		[1, 1]
 	]
 	EditorIcon
 	{
@@ -173,7 +171,7 @@ Part : /BASE_PART
 		Weapon
 		{
 			Type = FixedWeapon
-			Location = [0.5, 0]// Relative to upper-left corner of unrotated part.
+			Location = [0.5, -1]// Relative to upper-left corner of unrotated part.
 			Rotation = -90d// Relative to unrotated part.
 			FireInterval = .2
 			FireDelay = 0
@@ -188,8 +186,8 @@ Part : /BASE_PART
 			Emitter
 			{
 				Type = Beam
-				Range = 6
-				IdealRange = 5
+				Range = 10
+				IdealRange = 7
 				Duration = .5
 				HitInterval = .1
 
@@ -200,12 +198,12 @@ Part : /BASE_PART
 						BeamSprite
 						{
 							Texture = "beam_base.png"
-							_baseColor = [255, 255, 255, 255]
+							_baseColor = [255, 255, 255, 217]
 							Shader = "./Data/Ships/Terran/ion_beam/beam.shader"
-							_sizePulseFactor = 1.2
+							_sizePulseFactor = 4.2
 							_sizePulseInterval = .1
 							_sizePulseUOffsetFactor = -.03
-							Size = [2.75, 0]// Only width matters.
+							Size = [0.25, 0]// Only width matters.
 							VertexColor = [255, 255, 255, 217]
 						}
 						FadeInTime = .25
@@ -328,7 +326,7 @@ Part : /BASE_PART
 			Type = Graphics
 			Location = [0.5, 1]
 			DoodadToggle = Weapon
-			//ShowToggledDoodadsWhenNotOperational = true
+			ShowToggledDoodadsWhenNotOperational = true
 			Floor
 			{
 				Layer = "floors"
@@ -595,7 +593,7 @@ Part : /BASE_PART
 		Indicators
 		{
 			Type = IndicatorSprites
-			Location = [1, 3]
+			Location = [0.5, 1]
 			Layer = "indicators"
 			Indicators
 			[
@@ -615,7 +613,7 @@ Part : /BASE_PART
 					AtlasSprite
 					{
 						File = &/INDICATORS/NoPower
-						Size = [1.5, 1.5]
+						Size = [1, 1]
 					}
 				}
 
@@ -625,7 +623,7 @@ Part : /BASE_PART
 					AtlasSprite
 					{
 						File = &/INDICATORS/NoCrew
-						Size = [1.5, 1.5]
+						Size = [1, 1]
 					}
 				}
 			]

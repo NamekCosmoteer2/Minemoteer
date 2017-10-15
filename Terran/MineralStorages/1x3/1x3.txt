@@ -11,6 +11,11 @@ Part : /BASE_PART
 	MaxHealth = 4000
 	PenetrationResistance = 1
 	TypeCategories = [ammo]
+	AllowedDoorLocations
+	[
+		[1, -1]
+		[1, 1]
+	]
 	EditorIcon
 	{
 		Texture
@@ -29,96 +34,12 @@ Part : /BASE_PART
 	]
 	Components
 	{
-		Mineral1Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral1
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
-		Mineral2Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral2
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
-		Mineral3Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral3
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
-		Mineral4Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral4
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
-		Mineral5Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral5
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
-		Mineral6Storage
-		{
-			Type = AmmoConsumer
-			AmmoType = mineral6
-			MaxAmmo = 4
-			StartingAmmo = 0
-			SuppliesAmmo = true
-			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
-			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
-			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
-			JobUnassignThreshold = 1000000// Effectively unassignable.
-			RequiredForWholePartOperation = false
-
-			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
-		}
+		Mineral1Storage : ~/MineralStorage {}
+		Mineral2Storage : ~/MineralStorage {AmmoType = mineral2}
+		Mineral3Storage : ~/MineralStorage {AmmoType = mineral3}
+		Mineral4Storage : ~/MineralStorage {AmmoType = mineral4}
+		Mineral5Storage : ~/MineralStorage {AmmoType = mineral5}
+		Mineral6Storage : ~/MineralStorage {AmmoType = mineral6}
 
 		Graphics
 		{
@@ -183,13 +104,9 @@ Part : /BASE_PART
 			}
 		}
 
-		Mineral1Sprites
+		Mineral1Sprites : ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral1Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -210,13 +127,9 @@ Part : /BASE_PART
 				}
 			]
 		}
-		Mineral2Sprites
+		Mineral2Sprites: ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral2Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -237,13 +150,9 @@ Part : /BASE_PART
 				}
 			]
 		}
-		Mineral3Sprites
+		Mineral3Sprites: ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral3Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -264,13 +173,9 @@ Part : /BASE_PART
 				}
 			]
 		}
-		Mineral4Sprites
+		Mineral4Sprites: ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral4Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -291,13 +196,9 @@ Part : /BASE_PART
 				}
 			]
 		}
-		Mineral5Sprites
+		Mineral5Sprites: ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral5Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -318,13 +219,9 @@ Part : /BASE_PART
 				}
 			]
 		}
-		Mineral6Sprites
+		Mineral6Sprites: ~/MineralSprites 
 		{
-			Type = AmmoSprites
-			Location = [1.5, 0.5]
 			AmmoStorage = Mineral6Storage
-			Layer = "doodads_low"
-			HasZeroAmmoSprite = false
 			AmmoLevels
 			[
 				{
@@ -385,4 +282,28 @@ Part : /BASE_PART
 			]
 		}
 	}
+}
+
+MineralStorage
+{
+	Type = AmmoConsumer
+	AmmoType = mineral1
+	MaxAmmo = 4
+	StartingAmmo = 0
+	SuppliesAmmo = true
+	LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+	HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+	EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+	JobUnassignThreshold = 1000000// Effectively unassignable.
+	RequiredForWholePartOperation = false
+
+	ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+}
+MineralSprites
+{
+	Type = AmmoSprites
+	Location = [1.5, 0.5]
+	AmmoStorage = Mineral1Storage
+	Layer = "doodads_low"
+	HasZeroAmmoSprite = false
 }

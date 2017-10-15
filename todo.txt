@@ -2,7 +2,22 @@
 
 
 - Mining Laser
+Damage levels
+
+- Mass Storage for all trade items and scrap
 Sprites
+Code
+
+- Processor you get from trading
+Sprites
+Code
+
+- Change colour of the green mineral
+Sprites
+
+- Bullet Factory  <- Put together by trading items
+Sprites
+Code
 
 - Trading Station
 Sprites

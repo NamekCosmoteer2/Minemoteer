@@ -33,6 +33,7 @@ Actions
 			&<Ammo/ammo.txt>/Mineral5
 			&<Ammo/ammo.txt>/RMineral6
 			&<Ammo/ammo.txt>/Mineral6
+			&<Ammo/ammo.txt>/Processor
 		]
 	}
 	//Catagory Limits

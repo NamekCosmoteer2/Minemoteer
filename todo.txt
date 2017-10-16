@@ -12,13 +12,6 @@ Damage levels
 Sprites
 Code
 
-- Processor you get from trading
-Sprites
-Code
-
-- Change colour of the green mineral
-Sprites
-
 - Construction Sites
 Takes ammo 1 per ammo storage, each with their own ammo sprite, then a multiprereq that has all storages, followed by a weapon tbat shoots the part with a crazy amount of damage to kill the crazy health and really low penetration resistance. Limit construction sites to like 2 once part is killed make normal part in its place.
 

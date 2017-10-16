@@ -32,7 +32,7 @@ Processor
 	CarriesMultiple = 1
 	CarriedSprite
 	{
-		File = "mineral2.png"
+		File = "processor.png"
 		Size = [1, 1]
 	}
 	CarriedSpriteOffset = [0, .25]

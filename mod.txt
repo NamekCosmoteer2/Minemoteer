@@ -34,6 +34,7 @@ Actions
 			&<Ammo/ammo.txt>/RMineral6
 			&<Ammo/ammo.txt>/Mineral6
 			&<Ammo/ammo.txt>/Processor
+			&<Ammo/ammo.txt>/Metal_Plate
 		]
 	}
 	//Catagory Limits

@@ -1,3 +1,7 @@
+//Wiki Page!
+-For all the information you need to know, like what buildable structures need, what you can trade, how to get sertain items.
+Where you can find trade stations, etc. etc.
+
 //Terran Parts
 
 
@@ -43,7 +47,6 @@ Spriting
 Code
 
 - Docking part that shoots minirals (In trading station and mothership?)
-Sprites
 Code
 3 tall x 5 wide shoots out middle of 5
 uses code from energywires to move resources out, each with their own toggle.

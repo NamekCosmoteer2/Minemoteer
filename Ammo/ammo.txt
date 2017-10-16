@@ -25,6 +25,20 @@ Mineral1
 	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
 }
 
+Processor
+{
+	ID = processor
+	MaxCarried = 1
+	CarriesMultiple = 1
+	CarriedSprite
+	{
+		File = "mineral2.png"
+		Size = [1, 1]
+	}
+	CarriedSpriteOffset = [0, .25]
+	AdditionalCarriedSpriteCumulativeOffset = [0, .15]
+}
+
 RMineral2
 {
 	ID = rmineral2

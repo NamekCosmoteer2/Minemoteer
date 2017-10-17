@@ -1,0 +1,229 @@
+Part : /BASE_PART
+{
+	NameKey = "Parts/Armor"
+	IconNameKey = "Parts/ArmorIcon"
+	IDString = armor3
+	EditorGroup = "Minemoteer"
+	DescriptionKey = "Parts/ArmorDesc"
+	Cost = 300
+	Size = [5, 3]
+	SelectionTypeID = "armor"
+	MaxHealth = 4000
+	AreaDamageBlockFactor = .25
+	Flammable = false
+	PenetrationResistance = 5
+	CreatePartPerTileWhenGrabbed = ""
+	//CrewSpeedFactor = 0
+	Density = 2
+	IsRotateable = true
+	IsWalled = true
+	//AllowedDoorLocations = []
+	GeneratorRequiresDoor = false
+	CustomCollider
+	[
+		[0,4]
+		[0,1]
+		[1,0]
+		[4,0]
+		[5,1]
+		[5,4]
+	]
+	ExternalWallsByCell
+	[
+		{
+			Key = [4, 0]
+			Value = [BottomRight, TopLeft]
+		}
+		{
+			Key = [0, 0]
+			Value = [BottomLeft, TopRight]
+		}
+	]
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [96, 64]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [5, 4]
+			Offset = [0, -0.5]
+		}
+	]
+	Components
+	{
+		Graphics
+		{
+			Type = Graphics
+			Location = [2.5, 1]
+			Floor // This is needed so that armor shows up in ship ghosts.
+			{
+				Layer = "floors"
+				DamageLevels
+				[
+					{
+						File = "floor.png"
+						Size = [5, 4]
+					}
+					{
+						File = "armor_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+			Walls
+			{
+				Layer = "walls"
+				DamageLevels
+				[
+					{
+						File = "walls.png"
+						Size = [5, 4]
+					}
+					{
+						File = "armor_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "armor_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+			Roof
+			{
+				Layer = "roofs"
+				DamageLevels
+				[
+					{
+						File = "roof.png"
+						Size = [5, 4]
+					}
+					{
+						File = "roof_33.png"
+						Size = [1, 1]
+					}
+					{
+						File = "roof_66.png"
+						Size = [1, 1]
+					}
+				]
+			}
+		}
+		
+		Mineral1Storage : ~/MineralStorage {AmmoType = mineral1}
+		Mineral1Sprites : ~/MineralSprites
+		{
+			AmmoStorage = Mineral1Storage
+			AmmoLevels
+			[
+				{
+					File = "M1 1.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 2.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 3.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 4.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 5.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 6.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 7.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 8.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 9.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 10.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 11.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 12.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 13.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 14.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 15.png"
+					Size = [5, 4]
+				}
+				{
+					File = "M1 16.png"
+					Size = [5, 4]
+				}
+			]
+		}
+		
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/EFFECT_PREFABS/SmallPartDestroyedDry
+			Location = [.5, .5]
+		}
+	}
+}
+
+MineralStorage
+{
+	Type = AmmoConsumer
+	AmmoType = mineral1
+	MaxAmmo = 16
+	StartingAmmo = 0
+	SuppliesAmmo = false
+	LowConsumeJobPriority = 999
+	HighConsumeJobPriority = 999
+	EmptyConsumeJobPriority = 999
+	JobUnassignThreshold = 1000000// Effectively unassignable.
+	RequiredForWholePartOperation = false
+
+	ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+}
+
+MineralSprites
+{
+	Type = AmmoSprites
+	Location = [2.5, 1]
+	Layer = "doodads_low"
+	HasZeroAmmoSprite = false
+	AmmoStorage = Mineral1Storage
+}

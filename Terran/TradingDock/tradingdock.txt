@@ -3,7 +3,7 @@ Part : /BASE_PART
 	NameKey = "Parts/Armor"
 	IconNameKey = "Parts/ArmorIcon"
 	IDString = armor3
-	EditorGroup = "Defenses"
+	EditorGroup = "Minemoteer"
 	DescriptionKey = "Parts/ArmorDesc"
 	Cost = 300
 	Size = [5, 3]
@@ -13,11 +13,11 @@ Part : /BASE_PART
 	Flammable = false
 	PenetrationResistance = 5
 	CreatePartPerTileWhenGrabbed = ""
-	CrewSpeedFactor = 0
+	//CrewSpeedFactor = 0
 	Density = 2
 	IsRotateable = true
 	IsWalled = true
-	AllowedDoorLocations = []
+	//AllowedDoorLocations = []
 	GeneratorRequiresDoor = false
 	CustomCollider
 	[
@@ -28,30 +28,17 @@ Part : /BASE_PART
 		[5,1]
 		[5,4]
 	]
-	
-		ExternalWallsByCell
+	ExternalWallsByCell
 	[
 		{
-			Key = [0, 1]
-			Value = [TopLeft, Bottom, BottomLeft, Left]
+			Key = [4, 0]
+			Value = [BottomRight, TopLeft]
 		}
-		{
-			Key = [1, 1]
-			Value = [TopRight, Right, BottomRight, Bottom]
-		}
-	]
-	InternalWallsByCell
-	[
 		{
 			Key = [0, 0]
-			Value = [Left, TopLeft, Top, TopRight]
-		}
-		{
-			Key = [1, 0]
-			Value = [Right, TopRight, Top, TopLeft]
+			Value = [BottomLeft, TopRight]
 		}
 	]
-	
 	EditorIcon
 	{
 		Texture
@@ -59,13 +46,14 @@ Part : /BASE_PART
 			File = "icon.png"
 			SampleMode = Linear
 		}
-		Size = [32, 32]
+		Size = [96, 64]
 	}
 	BlueprintSprites
 	[
 		{
 			File = "blueprints.png"
-			Size = [1, 1]
+			Size = [5, 4]
+			Offset = [0, -0.5]
 		}
 	]
 	Components
@@ -80,7 +68,7 @@ Part : /BASE_PART
 				DamageLevels
 				[
 					{
-						File = "armor.png"
+						File = "floor.png"
 						Size = [5, 4]
 					}
 					{
@@ -99,7 +87,7 @@ Part : /BASE_PART
 				DamageLevels
 				[
 					{
-						File = "armor.png"
+						File = "walls.png"
 						Size = [5, 4]
 					}
 					{
@@ -118,7 +106,7 @@ Part : /BASE_PART
 				DamageLevels
 				[
 					{
-						File = "armor.png"
+						File = "roof.png"
 						Size = [5, 4]
 					}
 					{
@@ -132,7 +120,755 @@ Part : /BASE_PART
 				]
 			}
 		}
-
+		//Mineral1
+		Mineral1Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral1
+		AdditionalStorageForJobPriority = [Mineral1Storage2]
+		}		
+		Mineral1Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral1
+		AdditionalStorageForJobPriority = [Mineral1Storage1]
+		}	
+		
+		Mineral1Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral1Storage1
+			Offseted = [0, 0.109375]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M1 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral1Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral1Storage2
+			Offseted = [2.671875, 0.109375]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M1 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M1 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		
+		//Mineral2
+		Mineral2Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral2
+		AdditionalStorageForJobPriority = [Mineral2Storage2]
+		}		
+		Mineral2Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral2
+		AdditionalStorageForJobPriority = [Mineral2Storage1]
+		}	
+		
+		Mineral2Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral2Storage1
+			Offseted = [0, 0.296875]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M2 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral2Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral2Storage2
+			Offseted = [2.671875, 0.296875]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M2 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M2 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		
+		//Mineral3
+		Mineral3Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral3
+		AdditionalStorageForJobPriority = [Mineral3Storage2]
+		}		
+		Mineral3Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral3
+		AdditionalStorageForJobPriority = [Mineral3Storage1]
+		}	
+		
+		Mineral3Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral3Storage1
+			Offseted = [0, 0.5]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M3 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral3Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral3Storage2
+			Offseted = [2.671875, 0.5]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M3 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M3 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		
+		//Mineral4
+		Mineral4Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral4
+		AdditionalStorageForJobPriority = [Mineral4Storage2]
+		}		
+		Mineral4Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral4
+		AdditionalStorageForJobPriority = [Mineral4Storage1]
+		}	
+		
+		Mineral4Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral4Storage1
+			Offseted = [0, -0.5]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M4 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral4Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral4Storage2
+			Offseted = [2.671875, -0.5]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M4 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M4 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+				//Mineral5
+		Mineral5Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral5
+		AdditionalStorageForJobPriority = [Mineral5Storage2]
+		}		
+		Mineral5Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral5
+		AdditionalStorageForJobPriority = [Mineral5Storage1]
+		}	
+		
+		Mineral5Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral5Storage1
+			Offseted = [0, -0.296875]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M5 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral5Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral5Storage2
+			Offseted = [2.671875, -0.296875]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M5 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M5 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		
+		//Mineral6
+		Mineral6Storage1 : ~/MineralStorage 
+		{
+		AmmoType = mineral6
+		AdditionalStorageForJobPriority = [Mineral6Storage2]
+		}		
+		Mineral6Storage2 : ~/MineralStorage 
+		{
+		AmmoType = mineral6
+		AdditionalStorageForJobPriority = [Mineral6Storage1]
+		}	
+		
+		Mineral6Sprites1 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral6Storage1
+			Offseted = [0, -0.109375]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M6 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		Mineral6Sprites2 : ~/MineralSprites
+		{
+			AmmoStorage = Mineral6Storage2
+			Offseted = [2.671875, -0.109375]
+			AmmoLevels
+			[
+				{
+					File = "../../MineralAmmoLevels/M6 1.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 2.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 3.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 4.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 5.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 6.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 7.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+				{
+					File = "../../MineralAmmoLevels/M6 8.png"
+					Size = [1.859375, 0.171875]
+					Offset = &../../Offseted
+					Rotation = 180d
+				}
+			]
+		}
+		
 		DestroyedEffects
 		{
 			Type = DeathEffects
@@ -140,4 +876,29 @@ Part : /BASE_PART
 			Location = [.5, .5]
 		}
 	}
+}
+
+MineralStorage
+{
+	Type = AmmoConsumer
+	AmmoType = mineral1
+	MaxAmmo = 8
+	StartingAmmo = 0
+	SuppliesAmmo = false
+	LowConsumeJobPriority = 999
+	HighConsumeJobPriority = 999
+	EmptyConsumeJobPriority = 999
+	JobUnassignThreshold = 1000000// Effectively unassignable.
+	RequiredForWholePartOperation = false
+
+	ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+}
+
+MineralSprites
+{
+	Type = AmmoSprites
+	Location = [1.3515625, 2.0546875]
+	Layer = "doodads_low"
+	HasZeroAmmoSprite = false
+	AmmoStorage = Mineral1Storage
 }

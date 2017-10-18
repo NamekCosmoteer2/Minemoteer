@@ -869,6 +869,306 @@ Part : /BASE_PART
 			]
 		}
 		
+		C1 : ~/ConvBase
+		{
+			FromStorage = Mineral1Storage2
+			ToStorage = Mineral1Storage1
+		}
+		C2 : ~/ConvBase
+		{
+			FromStorage = Mineral2Storage2
+			ToStorage = Mineral2Storage1
+		}
+		C3 : ~/ConvBase
+		{
+			FromStorage = Mineral3Storage2
+			ToStorage = Mineral3Storage1
+		}
+		C4 : ~/ConvBase
+		{
+			FromStorage = Mineral4Storage2
+			ToStorage = Mineral4Storage1
+		}
+		C5 : ~/ConvBase
+		{
+			FromStorage = Mineral5Storage2
+			ToStorage = Mineral5Storage1
+		}
+		C6 : ~/ConvBase
+		{
+			FromStorage = Mineral6Storage2
+			ToStorage = Mineral6Storage1
+		}
+		
+		Toggle1 : ~/ToggleBase
+		{
+			ToggleID = "mineral1"
+		}
+		
+		Mineral1Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle1
+			AmmoStorage = Mineral1Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral1
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral1
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		Toggle2 : ~/ToggleBase
+		{
+			ToggleID = "mineral2"
+		}
+		
+		Mineral2Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle2
+			AmmoStorage = Mineral2Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral2
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral2
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		Toggle3 : ~/ToggleBase
+		{
+			ToggleID = "mineral3"
+		}
+		
+		Mineral3Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle3
+			AmmoStorage = Mineral3Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral3
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral3
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		Toggle4 : ~/ToggleBase
+		{
+			ToggleID = "mineral4"
+		}
+		
+		Mineral4Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle4
+			AmmoStorage = Mineral4Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral4
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral4
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		Toggle5 : ~/ToggleBase
+		{
+			ToggleID = "mineral5"
+		}
+		
+		Mineral5Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle5
+			AmmoStorage = Mineral5Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral5
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral5
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		Toggle6 : ~/ToggleBase
+		{
+			ToggleID = "mineral6"
+		}
+		
+		Mineral6Turret : ~/TurretBase
+		{
+			FireModeToggle = Toggle6
+			AmmoStorage = Mineral6Storage1
+			Emitter
+			{
+				Type = Bullet
+				Bullet
+				{
+					ID = mineral6
+					Range = 150000
+					IdealRange = -1
+					Speed = 0.5
+					
+					Components : ~/BulletComponentBase
+					{
+						Hit : ~/HitBase
+						{
+
+							HitOperational
+							{
+								HitEffects
+								[
+									{
+										Type = PartAmmoDrain
+										AmmoType = mineral6
+										Amount = -1
+										AllowFriendlyDrain = true
+									}
+								]
+								MediaEffects
+								[
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+		
 		DestroyedEffects
 		{
 			Type = DeathEffects
@@ -901,4 +1201,119 @@ MineralSprites
 	Layer = "doodads_low"
 	HasZeroAmmoSprite = false
 	AmmoStorage = Mineral1Storage
+}
+
+ToggleBase
+{
+	Type = UIToggle
+	ToggleID = "on_off"
+	DefaultToggleValue = 0
+	RequiredForWholePartOperation = false
+	ToggledOnChoices = [1]
+}
+
+TurretBase
+{
+	//Storage = mineral1
+	Type = TurretWeapon
+	Location = [2.5, -0.5] // Relative to upper-left corner of unrotated part.
+	Rotation = -90d // Relative to unrotated part.
+	FireInterval = 0.5
+	FireDelay = .01
+	FiringArc = 0d
+	RotateSpeed = 0d
+	FireThresholdAngle = 360d
+	SpawnLoc = [0, 0]
+	AmmoStorage = Mineral1Storage1
+	AmmoUsed = 1
+	TargetSearchTriesPerFrame = 1
+	AIFirepowerRating = 600
+	AllowFireWithBlockedLOS = true
+	CanBeGivenExplicitTarget = false
+}
+
+BulletComponentBase
+{
+	Physics
+	{
+		Type = CirclePhysics
+		Radius = 0.01
+		Density = 0.1
+	}
+	
+	Death
+	{
+		Type = DeathByLifetime
+		Lifetime = 0.5
+		// Lifetime will be auto-calculated based on range and speed.
+	}
+	
+	Sprite
+	{
+		Type = AnimatedSprite
+		Animation
+		{
+			AtlasSprite
+			{
+				Texture = "blank.png"// Just re-use the medium cannon's bullet.
+				Size = [3, 3]
+			}
+			FrameCount = 16
+			FrameSize = [128, 128]
+			FramesPerRow = 4
+			FramesPerSecond = 60
+		}
+	}
+	
+	
+	MediaEffects
+	{
+		Type = MediaEffects
+		InheritVelocityFrom = Physics
+		MediaEffects
+		[
+		]
+	}
+}	
+
+HitBase
+{
+	Type = PenetratingHit
+	PhysicsComponent = Physics
+	
+	HitShield
+	{
+	}
+	HitStructural
+	{
+	}
+	PenetratingOperational
+	{
+		// No effect.
+	}
+	PenetratingStructural
+	{
+		// No effect.
+	}
+	FinishedPenetratingOperational
+	{
+		// No effect.
+	}
+	FinishedPenetratingStructural
+	{
+		// No effect.
+	}
+}
+
+ConvBase
+{
+	Type = AmmoConverter
+	Location = [1, 1]
+	FromStorage = BatteryStorage
+	ToStorage = AmmoStorage
+	FromQuantity = 1
+	ToQuantity = 1
+	Interval = .5
+
+	ConvertAmmoMediaEffects[]
 }

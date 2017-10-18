@@ -1,5 +1,21 @@
 Astroids = "Astroids"
 
+PartToggles
+{
+	Mineral1_On = "Trading Mineral1 On"
+	Mineral1_Off = "Trading Mineral1 Off"
+	Mineral2_On = "Trading Mineral2 On"
+	Mineral2_Off = "Trading Mineral2 Off"
+	Mineral3_On = "Trading Mineral3 On"
+	Mineral3_Off = "Trading Mineral3 Off"
+	Mineral4_On = "Trading Mineral4 On"
+	Mineral4_Off = "Trading Mineral4 Off"
+	Mineral5_On = "Trading Mineral5 On"
+	Mineral5_Off = "Trading Mineral5 Off"
+	Mineral6_On = "Trading Mineral6 On"
+	Mineral6_Off = "Trading Mineral6 Off"
+}
+
 AI
 {
 	Station = "Station AI"

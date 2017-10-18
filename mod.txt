@@ -53,6 +53,8 @@ Actions
 			]
 		}
 	}
+	
+	//Gui
 	//Editor Groups
 	{
 		Action = Add
@@ -67,6 +69,165 @@ Actions
 			}
 		}
 	}
+	//UI Toggles
+	{
+		Action = AddMany
+		AddTo = "<Gui/game gui.txt>/PartToggles"
+		ManyToAdd = 
+		[
+			{
+				ToggleID = "mineral1"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral1_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/mineral1_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral1_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral1.png"
+						}
+					}
+				]
+			}
+			{
+				ToggleID = "mineral2"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral2_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral2_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral2_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral2.png"
+						}
+					}
+				]
+			}
+			{
+				ToggleID = "mineral3"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral3_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral3_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral3_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral3.png"
+						}
+					}
+				]
+			}
+			{
+				ToggleID = "mineral4"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral4_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral4_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral4_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral4.png"
+						}
+					}
+				]
+			}
+			{
+				ToggleID = "mineral5"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral5_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral5_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral5_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral5.png"
+						}
+					}
+				]
+			}
+			{
+				ToggleID = "mineral6"
+				Style = CycledButton
+				DefaultHotkey = []
+				Choices
+				[
+					// Off
+					{
+						ButtonToolTipKey = "PartToggles/Mineral6_Off"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral6_off.png"
+						}
+					}
+		
+					// On
+					{
+						ButtonToolTipKey = "PartToggles/Mineral6_On"
+						ButtonSprite
+						{
+							Texture = "Ammo/Mineral6.png"
+						}
+					}
+				]
+			}
+		]
+	}
+	
 	//Parts
 	{	
 		Action = AddMany

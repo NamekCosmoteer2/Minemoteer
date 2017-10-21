@@ -1,0 +1,187 @@
+Part : /BASE_PART
+{
+	NameKey = "Parts/BulletFactory0"
+	IconNameKey = "Parts/BulletFactory0Icon"
+	IDString = bulletfactory0
+	EditorGroup = "Munitions"
+	DescriptionKey = "Parts/BulletFactory0Desc"
+	Cost = 1000
+	AIValue = 10
+	Size = [2, 2]
+	MaxHealth = 99999999
+	PenetrationResistance = 1
+	TypeCategories = [ammo]
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [64, 64]
+	}
+	BlueprintSprites
+	[
+		{
+			File = "blueprints.png"
+			Size = [2, 2]
+		}
+	]
+	Components
+	{
+		AmmoStorage
+		{
+			Type = AmmoConsumer
+			AmmoType = processor
+			MaxAmmo = 1
+			StartingAmmo = 0
+			SuppliesAmmo = false
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = true
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+
+		AmmoStorage2
+		{
+			Type = AmmoConsumer
+			AmmoType = metal_plate
+			MaxAmmo = 3
+			StartingAmmo = 0
+			SuppliesAmmo = false
+			LowConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_LowConsume
+			HighConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_HighConsume
+			EmptyConsumeJobPriority = &/TERRAN_PRIORITIES/AmmoStorage_EmptyConsume
+			JobUnassignThreshold = 1000000// Effectively unassignable.
+			RequiredForWholePartOperation = true
+
+			ReceiveAmmoMediaEffects = &/EFFECT_PREFABS/AmmoDeliver
+		}
+
+		Graphics
+		{
+			Type = Graphics
+			Location = [1, 1]
+			Floor
+			{
+				Layer = "floors"
+				DamageLevels
+				[
+					{
+						File = "floor.png"
+						Size = [2, 2]
+					}
+				]
+			}
+			Walls
+			{
+				Layer = "walls"
+				DamageLevels
+				[
+					{
+						File = "walls.png"
+						Size = [2, 2]
+					}
+				]
+			}
+			Roof
+			{
+				Layer = "roofs"
+				DamageLevels
+				[
+					{
+						File = "../roof.png"
+						Size = [2, 2]
+					}
+				]
+			}
+		}
+		AmmoSprites
+		{
+			Type = AmmoSprites
+			Location = [1, 1]
+			AmmoStorage = AmmoStorage
+			Layer = "doodads_high"
+			AmmoLevels
+			[
+				{
+					File = "processor.png"
+					Size = [2, 2]
+				}
+			]
+		}
+		AmmoSprites
+		{
+			Type = AmmoSprites
+			Location = [1, 1]
+			AmmoStorage = AmmoStorage2
+			Layer = "doodads_low"
+			AmmoLevels
+			[
+				{
+					File = "metal1.png"
+					Size = [2, 2]
+				}
+				{
+					File = "metal2.png"
+					Size = [2, 2]
+				}
+				{
+					File = "metal3.png"
+					Size = [2, 2]
+				}
+			]
+		}
+
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/EFFECT_PREFABS/MedPartDestroyed
+			Location = [1, 1]
+
+			FactorHitEffectsWith = AmmoStorage
+			HitEffects
+			[
+				{
+					Type = PartAreaDamage
+					DamageVsOperationalPerTile = 2000
+					RadiusVsOperational = 4
+					DamageVsStructurePerTile = 1000
+					RadiusVsStructure = 3
+					Delay = .05
+					AllowFriendlyDamage = true
+				}
+				{
+					Type = AreaFires
+					FireChancePerTile = .25
+					FireRadius = 4
+					FireFalloff = 0
+					Delay = .05
+					AllowFriendlyFires = true
+				}
+			]
+		}
+
+		Indicators
+		{
+			Type = IndicatorSprites
+			Location = [1, 1]
+			Layer = "indicators"
+			Indicators
+			[
+				// Out of ammo.
+				{
+					Source = AmmoStorage
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoAmmo
+						Size = [1.5, 1.5]
+					}
+				}
+			]
+		}
+	}
+}
